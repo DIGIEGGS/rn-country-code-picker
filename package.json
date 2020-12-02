@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/DIGIEGGS/react-native-calling-code-picker/issues"
   },
-  "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",

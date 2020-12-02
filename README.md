@@ -12,11 +12,11 @@ This component is not supported in the managed workflow for expo for the time be
 
 ## Getting started
 
-`npm install react-native-calling-code-picker --save`
+`npm install @digieggs/react-native-calling-code-picker --save`
 
 or
 
-`yarn add react-native-calling-code-picker`
+`yarn add @digieggs/react-native-calling-code-picker`
 
 Also you need to manually install `react-native-svg` library for the icons in the component
 

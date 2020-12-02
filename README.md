@@ -1,4 +1,7 @@
 # React Native Calling Code Picker
+![npm](https://img.shields.io/npm/v/react-native-calling-code-picker?color=%23CC3534&style=for-the-badge) ![NPM](https://img.shields.io/npm/l/react-native-calling-code-picker?style=for-the-badge)
+---
+
 A searchable dropdown component to select a country code for your phone number input.
 
 <img src="./src/screenshot/picker.gif" width="300">

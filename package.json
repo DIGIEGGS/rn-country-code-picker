@@ -1,6 +1,6 @@
 {
   "name": "react-native-calling-code-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",

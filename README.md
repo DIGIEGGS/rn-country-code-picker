@@ -158,3 +158,8 @@ Style to apply to each of the item labels.
 | StyleProp | No       |
 
 ---
+
+## Credits
+
+- https://www.countryflags.io/ (for the flags)
+- https://restcountries.eu/ (fetched the info in the countries.json from this api)

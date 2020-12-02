@@ -1,5 +1,5 @@
 {
-  "name": "react-native-calling-code-picker",
+  "name": "@digieggs/react-native-calling-code-picker",
   "version": "1.0.2",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",

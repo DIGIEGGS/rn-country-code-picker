@@ -8,7 +8,7 @@ import StyledText from './StyledText';
 
 interface IPickerTogglerProps {
   selectedValue: string;
-  selectedCountryCode: string;
+  selectedCountryCode?: string;
   isPickerOpen: boolean;
   onPickerToggle: () => void;
   textStyle?: StyleProp<TextStyle>;
@@ -33,7 +33,7 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
     <TouchableOpacity onPress={onPickerToggle}>
       <View style={styles.innerContainer}>
         <Flag {...{ selectedCountryCode }} />
-        <StyledText style={textStyle}>{`+${selectedValue || '90'}`}</StyledText>
+        <StyledText style={textStyle}>{`+${selectedValue}`}</StyledText>
         <View style={arrowDownStyle}>
           <SvgArrowDown color={colors.black} width={18} height={18} />
         </View>

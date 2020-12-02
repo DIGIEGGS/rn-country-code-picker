@@ -17,12 +17,12 @@ interface ICallingCodePickerProps {
   /**
    * Value matching value of one of the items. Can be a string.
    */
-  selectedValue?: string;
+  selectedValue: string;
   /**
    * Callback for when a country code is selected. This is called with the following parameters:
    *   - `itemValue`: the value of the item that was selected
    */
-  onValueChange?: (itemValue: string) => void;
+  onValueChange: (itemValue: string) => void;
   /**
    * Style to apply to the main container.
    */
@@ -63,7 +63,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
   const selectedCountryCode = useMemo(() => {
     const selectedCountry = countries.find(country => country.callingCodes[0] === selectedValue);
-    return selectedCountry?.alpha2Code.toLowerCase() || 'tr';
+    return selectedCountry?.alpha2Code.toLowerCase();
   }, [selectedValue]);
 
   const countriesData = useMemo(() => {
@@ -94,8 +94,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   return (
     <View style={[styles.container, containerStyle]}>
       <PickerToggler
-        {...{ selectedCountryCode }}
-        selectedValue={selectedValue || '90'}
+        {...{ selectedCountryCode, selectedValue }}
         onPickerToggle={handleTogglePicker}
         textStyle={pickerTogglerLabelStyle}
         {...{ isPickerOpen }}

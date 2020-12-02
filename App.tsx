@@ -9,7 +9,7 @@ import { CallingCodePicker } from './src';
 import { spacing } from './src/theme';
 
 const App = () => {
-  const [selectedCallingCode, setSelectedCallingCode] = useState<string>('');
+  const [selectedCallingCode, setSelectedCallingCode] = useState<string>('90');
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
 # React Native Calling Code Picker
 A searchable dropdown component to select a country code for your phone number input.
 
-<img src="./src/screenshot/picker.gif" width="150">
+<img src="./src/screenshot/picker.gif" width="300">
 
 ## For Managed Workflow users using Expo
 This component is not supported in the managed workflow for expo for the time being.

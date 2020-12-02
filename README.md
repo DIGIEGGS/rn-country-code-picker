@@ -1,36 +1,38 @@
 # React Native Calling Code Picker
-![npm](https://img.shields.io/npm/v/@digieggs/react-native-calling-code-picker?color=%23CC3534&style=for-the-badge) ![NPM](https://img.shields.io/npm/l/@digieggs/react-native-calling-code-picker?style=for-the-badge)
----
+
+## ![npm](https://img.shields.io/npm/v/@digieggs/react-native-calling-code-picker?color=%23CC3534&style=for-the-badge) ![NPM](https://img.shields.io/npm/l/@digieggs/react-native-calling-code-picker?style=for-the-badge)
 
 A searchable dropdown component to select a country code for your phone number input.
 
 <img src="https://github.com/DIGIEGGS/react-native-calling-code-picker/blob/main/src/screenshot/picker.gif?raw=true" width="300">
 
 ## For Managed Workflow users using Expo
+
 This component is not supported in the managed workflow for expo for the time being.
 
 ## Getting started
 
-```npm install react-native-calling-code-picker --save```
+`npm install react-native-calling-code-picker --save`
 
 or
 
-```yarn add react-native-calling-code-picker```
+`yarn add react-native-calling-code-picker`
 
-Also you need to manually install ```react-native-svg``` library for the icons in the component
+Also you need to manually install `react-native-svg` library for the icons in the component
 
-```npm install react-native-svg --save```
+`npm install react-native-svg --save`
 
 or
 
-```yarn add react-native-svg```
+`yarn add react-native-svg`
 
 ### For react-native@0.60.0 or above
 
-As [react-native@0.60.0](https://reactnative.dev/blog/2019/07/03/version-60) or above supports autolinking, so there is no need to run linking process. 
+As [react-native@0.60.0](https://reactnative.dev/blog/2019/07/03/version-60) or above supports autolinking, so there is no need to run linking process.
 Read more about autolinking [here](https://github.com/react-native-picker/cli/blob/master/docs/autolinking.md).
 
 #### iOS
+
 CocoaPods on iOS needs this extra step
 
 ```
@@ -38,6 +40,7 @@ npx pod-install
 ```
 
 #### Android
+
 No additional step is required.
 
 ## Usage
@@ -51,17 +54,18 @@ import { CallingCodePicker } from 'react-native-calling-code-picker';
 Then use it like this.
 
 ```javascript
-const [selectedCallingCode, setSelectedCallingCode] = useState('');
+const [selectedCallingCode, setSelectedCallingCode] = useState('90'); // Give it a default value to show an initial flag and a code
 
-  return (
-      <CallingCodePicker
-        selectedValue={selectedCallingCode}
-        onValueChange={value => setSelectedCallingCode(value)}
-      />
-  );
+return (
+  <CallingCodePicker
+    selectedValue={selectedCallingCode}
+    onValueChange={value => setSelectedCallingCode(value)}
+  />
+);
 ```
 
 ## Props
+
 - [`selectedValue`](#selectedValue)
 - [`onValueChange`](#onValueChange)
 - [`containerStyle`](#containerStyle)
@@ -81,9 +85,9 @@ const [selectedCallingCode, setSelectedCallingCode] = useState('');
 
 Value matching value of one of the items. Can be a string.
 
-| Type     | Required |
-| -------- | -------- |
-| string | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | Yes      |
 
 ---
 
@@ -91,11 +95,11 @@ Value matching value of one of the items. Can be a string.
 
 Callback for when an item is selected. This is called with the following parameters:
 
-* `itemValue`: the value of the item that was selected
+- `itemValue`: the value of the item that was selected
 
 | Type     | Required |
 | -------- | -------- |
-| function | No       |
+| function | Yes      |
 
 ---
 
@@ -103,8 +107,8 @@ Callback for when an item is selected. This is called with the following paramet
 
 Style to apply to the main container. (for ex. you can give absolute positioning to align it inside the input.)
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---
@@ -113,8 +117,8 @@ Style to apply to the main container. (for ex. you can give absolute positioning
 
 SStyle to apply to the picker toggler label.
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---
@@ -123,8 +127,8 @@ SStyle to apply to the picker toggler label.
 
 Style to apply to the list container.
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---
@@ -133,8 +137,8 @@ Style to apply to the list container.
 
 Style to apply to the search input.
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---
@@ -143,8 +147,8 @@ Style to apply to the search input.
 
 Style to apply to the FlatList component.
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---
@@ -153,8 +157,8 @@ Style to apply to the FlatList component.
 
 Style to apply to each of the item labels.
 
-| Type     | Required |
-| -------- | -------- |
+| Type      | Required |
+| --------- | -------- |
 | StyleProp | No       |
 
 ---

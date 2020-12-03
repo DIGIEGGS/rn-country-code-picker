@@ -1,10 +1,10 @@
-# React Native Calling Code Picker
+# React Native Country Code Picker
 
-## ![npm](https://img.shields.io/npm/v/@digieggs/react-native-calling-code-picker?color=%23CC3534&style=for-the-badge) ![NPM](https://img.shields.io/npm/l/@digieggs/react-native-calling-code-picker?style=for-the-badge) ![npm](https://img.shields.io/npm/dw/@digieggs/react-native-calling-code-picker?style=for-the-badge)
+## ![npm](https://img.shields.io/npm/v/@digieggs/rn-country-code-picker?color=%23CC3534&style=for-the-badge) ![NPM](https://img.shields.io/npm/l/@digieggs/rn-country-code-picker?style=for-the-badge) ![npm](https://img.shields.io/npm/dw/@digieggs/rn-country-code-picker?style=for-the-badge)
 
 A searchable dropdown component to select a country code for your phone number input.
 
-<img src="https://github.com/DIGIEGGS/react-native-calling-code-picker/blob/main/src/screenshot/picker.gif?raw=true" width="300">
+<img src="https://github.com/DIGIEGGS/rn-country-code-picker/blob/main/src/screenshot/picker.gif?raw=true" width="300">
 
 ## For Managed Workflow users using Expo
 
@@ -12,11 +12,11 @@ This component is not supported in the managed workflow for expo for the time be
 
 ## Getting started
 
-`npm install @digieggs/react-native-calling-code-picker --save`
+`npm install @digieggs/rn-country-code-picker --save`
 
 or
 
-`yarn add @digieggs/react-native-calling-code-picker`
+`yarn add @digieggs/rn-country-code-picker`
 
 Also you need to manually install `react-native-svg` library for the icons in the component
 

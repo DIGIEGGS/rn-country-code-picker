@@ -1,25 +1,27 @@
 {
   "name": "@digieggs/rn-country-code-picker",
-  "version": "1.0.13",
+  "version": "1.0.0",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",
   "types": "lib/typescript/index.d.ts",
-  "description": "A searchable dropdown component for selecting a country code for your phone number input.",
+  "description": "A searchable dropdown component to select a country code for your phone number input.",
   "files": [
     "lib/",
     "src/"
   ],
   "keywords": [
     "react-native",
+    "country",
+    "country-code",
+    "dialing code",
     "picker",
-    "expo",
     "mobile",
     "ios",
     "android"
   ],
   "bugs": {
-    "url": "https://github.com/DIGIEGGS/react-native-calling-code-picker/issues"
+    "url": "https://github.com/DIGIEGGS/rn-country-code-picker/issues"
   },
   "scripts": {
     "android": "react-native run-android",
@@ -56,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DIGIEGGS/react-native-calling-code-picker"
+    "url": "git+https://github.com/DIGIEGGS/rn-country-code-picker"
   },
   "author": "Fatih Can <contact@fatihcan.dev>",
   "license": "MIT",

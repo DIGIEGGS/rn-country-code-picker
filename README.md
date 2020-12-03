@@ -48,7 +48,7 @@ No additional step is required.
 First of all, import the component.
 
 ```javascript
-import { CallingCodePicker } from 'react-native-calling-code-picker';
+import { CallingCodePicker } from 'rn-country-code-picker';
 ```
 
 Then use it like this.
@@ -115,7 +115,7 @@ Style to apply to the toggler container container. (for ex. you can give absolut
 
 ### `togglerLabelStyle`
 
-SStyle to apply to the picker toggler label.
+Style to apply to the picker toggler label.
 
 | Type      | Required |
 | --------- | -------- |

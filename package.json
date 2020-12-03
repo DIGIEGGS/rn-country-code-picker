@@ -1,6 +1,6 @@
 {
   "name": "@digieggs/react-native-calling-code-picker",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",

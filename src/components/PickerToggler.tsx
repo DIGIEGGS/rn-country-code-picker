@@ -11,6 +11,7 @@ interface IPickerTogglerProps {
   selectedCountryCode?: string;
   isPickerOpen: boolean;
   onPickerToggle: () => void;
+  containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 }
 
@@ -19,6 +20,7 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
   selectedCountryCode,
   isPickerOpen,
   onPickerToggle,
+  containerStyle,
   textStyle,
 }) => {
   const arrowDownStyle: StyleProp<ViewStyle> = {
@@ -30,15 +32,17 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
   };
 
   return (
-    <TouchableOpacity onPress={onPickerToggle}>
-      <View style={styles.innerContainer}>
-        <Flag {...{ selectedCountryCode }} />
-        <StyledText style={textStyle}>{`+${selectedValue}`}</StyledText>
-        <View style={arrowDownStyle}>
-          <SvgArrowDown color={colors.black} width={18} height={18} />
+    <View style={containerStyle}>
+      <TouchableOpacity onPress={onPickerToggle}>
+        <View style={styles.innerContainer}>
+          <Flag {...{ selectedCountryCode }} />
+          <StyledText style={textStyle}>{`+${selectedValue}`}</StyledText>
+          <View style={arrowDownStyle}>
+            <SvgArrowDown color={colors.black} width={18} height={18} />
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 

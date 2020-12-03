@@ -103,9 +103,9 @@ Callback for when an item is selected. This is called with the following paramet
 
 ---
 
-### `containerStyle`
+### `togglerContainerStyle`
 
-Style to apply to the main container. (for ex. you can give absolute positioning to align it inside the input.)
+Style to apply to the toggler container container. (for ex. you can give absolute positioning to align it inside the input.)
 
 | Type      | Required |
 | --------- | -------- |
@@ -113,7 +113,7 @@ Style to apply to the main container. (for ex. you can give absolute positioning
 
 ---
 
-### `pickerTogglerLabelStyle`
+### `togglerLabelStyle`
 
 SStyle to apply to the picker toggler label.
 

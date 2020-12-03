@@ -24,13 +24,13 @@ interface ICallingCodePickerProps {
    */
   onValueChange: (itemValue: string) => void;
   /**
-   * Style to apply to the main container.
+   * Style to apply to the toggler container.
    */
-  containerStyle?: StyleProp<ViewStyle>;
+  togglerContainerStyle?: StyleProp<ViewStyle>;
   /**
    * Style to apply to the picker toggler label.
    */
-  pickerTogglerLabelStyle?: StyleProp<TextStyle>;
+  togglerLabelStyle?: StyleProp<TextStyle>;
   /**
    * Style to apply to the list container.
    */
@@ -52,11 +52,11 @@ interface ICallingCodePickerProps {
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   selectedValue,
   onValueChange,
-  containerStyle,
+  togglerContainerStyle,
+  togglerLabelStyle,
   listContainerStyle,
   listStyle,
   pickerItemLabelStyle,
-  pickerTogglerLabelStyle,
   searchInputStyle,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -92,12 +92,12 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   };
 
   return (
-    <View style={[styles.container, containerStyle]}>
+    <>
       <PickerToggler
-        {...{ selectedCountryCode, selectedValue }}
+        {...{ selectedCountryCode, selectedValue, isPickerOpen }}
         onPickerToggle={handleTogglePicker}
-        textStyle={pickerTogglerLabelStyle}
-        {...{ isPickerOpen }}
+        containerStyle={togglerContainerStyle}
+        textStyle={togglerLabelStyle}
       />
       {isPickerOpen && (
         <View style={[styles.listContainer, listContainerStyle]}>
@@ -121,7 +121,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
           />
         </View>
       )}
-    </View>
+    </>
   );
 };
 

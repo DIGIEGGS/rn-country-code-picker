@@ -68,8 +68,8 @@ return (
 
 - [`selectedValue`](#selectedValue)
 - [`onValueChange`](#onValueChange)
-- [`containerStyle`](#containerStyle)
-- [`pickerTogglerLabelStyle`](#pickerTogglerLabelStyle)
+- [`togglerContainerStyle`](#containerStyle)
+- [`togglerContainerStyle`](#pickerTogglerLabelStyle)
 - [`listContainerStyle`](#listContainerStyle)
 - [`searchInputStyle`](#searchInputStyle)
 - [`listStyle`](#listStyle)

@@ -1,27 +1,29 @@
 import React from 'react';
 import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View } from 'react-native';
 
+import { ICountry } from '../types';
 import { colors, spacing } from '../theme';
 import Flag from './Flag';
 import StyledText from './StyledText';
 
 interface IPickerItemProps {
-  item: any;
+  item: ICountry;
   onItemSelect: (v: string) => void;
   textStyle?: StyleProp<TextStyle>;
 }
 
 const PickerItem: React.FC<IPickerItemProps> = ({ item, onItemSelect, textStyle }) => {
+  const { name, flag, callingCode } = item;
   return (
-    <TouchableOpacity onPress={() => onItemSelect(item.callingCodes[0])}>
+    <TouchableOpacity onPress={() => onItemSelect(callingCode)}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Flag selectedCountryCode={item.alpha2Code.toLowerCase()} />
+          <Flag {...{ flag }} />
         </View>
         <View style={styles.codeContainer}>
-          <StyledText style={textStyle}>{`+${item.callingCodes[0]}`}</StyledText>
+          <StyledText style={textStyle}>{`+${callingCode}`}</StyledText>
         </View>
-        <StyledText style={textStyle}>{item.name}</StyledText>
+        <StyledText style={textStyle}>{name}</StyledText>
       </View>
     </TouchableOpacity>
   );

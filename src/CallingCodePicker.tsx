@@ -61,9 +61,9 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const selectedCountryCode = useMemo(() => {
-    const selectedCountry = countries.find(country => country.callingCodes[0] === selectedValue);
-    return selectedCountry?.alpha2Code.toLowerCase();
+  const selectedCountryFlag = useMemo(() => {
+    const selectedCountry = countries.find(country => country.callingCode === selectedValue);
+    return selectedCountry?.flag;
   }, [selectedValue]);
 
   const countriesData = useMemo(() => {
@@ -72,7 +72,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
         country =>
           country.name.toLowerCase().includes(searchValue) ||
           country.name.includes(searchValue) ||
-          country.callingCodes[0] === searchValue,
+          country.callingCode === searchValue,
       );
       return filtered;
     } else {
@@ -94,7 +94,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   return (
     <>
       <PickerToggler
-        {...{ selectedCountryCode, selectedValue, isPickerOpen }}
+        flag={selectedCountryFlag}
+        {...{ selectedValue, isPickerOpen }}
         onPickerToggle={handleTogglePicker}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}

@@ -3,19 +3,13 @@ import { Image, StyleSheet, View } from 'react-native';
 import { borderRadii, spacing } from '../theme';
 
 interface IFlagProps {
-  selectedCountryCode?: string;
+  flag?: any;
 }
 
-const Flag: React.FC<IFlagProps> = ({ selectedCountryCode }) => {
+const Flag: React.FC<IFlagProps> = ({ flag }) => {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: `https://www.countryflags.io/${selectedCountryCode}/shiny/64.png`,
-        }}
-        resizeMethod="scale"
-      />
+      <Image style={styles.image} source={flag} resizeMethod="scale" />
     </View>
   );
 };

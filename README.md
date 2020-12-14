@@ -4,7 +4,7 @@
 
 A searchable dropdown component to select a country code for your phone number input.
 
-<img src="https://github.com/DIGIEGGS/rn-country-code-picker/blob/main/src/screenshot/picker.gif?raw=true" width="300">
+<img src="https://github.com/DIGIEGGS/rn-country-code-picker/blob/main/screenshot/picker.gif?raw=true" width="300">
 
 ## For Managed Workflow users using Expo
 

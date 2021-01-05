@@ -8,14 +8,14 @@ import StyledText from './StyledText';
 
 interface IPickerItemProps {
   item: ICountry;
-  onItemSelect: (v: string) => void;
+  onCountrySelect: (country: ICountry) => void;
   textStyle?: StyleProp<TextStyle>;
 }
 
-const PickerItem: React.FC<IPickerItemProps> = ({ item, onItemSelect, textStyle }) => {
+const PickerItem: React.FC<IPickerItemProps> = ({ item, onCountrySelect, textStyle }) => {
   const { name, flag, callingCode } = item;
   return (
-    <TouchableOpacity onPress={() => onItemSelect(callingCode)}>
+    <TouchableOpacity onPress={() => onCountrySelect(item)}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Flag {...{ flag }} />

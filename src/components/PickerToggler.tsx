@@ -7,7 +7,7 @@ import Flag from './Flag';
 import StyledText from './StyledText';
 
 interface IPickerTogglerProps {
-  selectedValue: string;
+  callingCode: string;
   flag?: any;
   isPickerOpen: boolean;
   onPickerToggle: () => void;
@@ -16,7 +16,7 @@ interface IPickerTogglerProps {
 }
 
 const PickerToggler: React.FC<IPickerTogglerProps> = ({
-  selectedValue,
+  callingCode,
   flag,
   isPickerOpen,
   onPickerToggle,
@@ -36,7 +36,7 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
       <TouchableOpacity onPress={onPickerToggle}>
         <View style={styles.innerContainer}>
           <Flag {...{ flag }} />
-          <StyledText style={textStyle}>{`+${selectedValue}`}</StyledText>
+          <StyledText style={textStyle}>{`+${callingCode}`}</StyledText>
           <View style={arrowDownStyle}>
             <SvgArrowDown color={colors.black} width={18} height={18} />
           </View>

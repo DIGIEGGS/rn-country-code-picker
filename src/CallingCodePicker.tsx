@@ -12,17 +12,18 @@ import {
 import { countries } from './data';
 import { PickerItem, PickerToggler, Search } from './components';
 import { borderRadii, colors, spacing } from './theme';
+import { ICountry } from './types';
 
 interface ICallingCodePickerProps {
   /**
-   * Value matching value of one of the items. Can be a string.
+   * An object containing the selected country info.
    */
-  selectedValue: string;
+  selectedCountry: ICountry;
   /**
    * Callback for when a country code is selected. This is called with the following parameters:
-   *   - `itemValue`: the value of the item that was selected
+   *   - `country`: an object containing the selected country info
    */
-  onValueChange: (itemValue: string) => void;
+  onCountrySelect: (country: ICountry) => void;
   /**
    * Style to apply to the toggler container.
    */
@@ -50,8 +51,8 @@ interface ICallingCodePickerProps {
 }
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
-  selectedValue,
-  onValueChange,
+  selectedCountry,
+  onCountrySelect,
   togglerContainerStyle,
   togglerLabelStyle,
   listContainerStyle,
@@ -62,9 +63,12 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
   const selectedCountryFlag = useMemo(() => {
-    const selectedCountry = countries.find(country => country.callingCode === selectedValue);
-    return selectedCountry?.flag;
-  }, [selectedValue]);
+    const { callingCode, name } = selectedCountry;
+    const selected = countries.find(
+      country => country.callingCode === callingCode && country.name === name,
+    );
+    return selected?.flag;
+  }, [selectedCountry]);
 
   const countriesData = useMemo(() => {
     if (searchValue.length > 0) {
@@ -80,8 +84,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     }
   }, [searchValue]);
 
-  const handleItemSelect = (itemValue: string) => {
-    onValueChange && onValueChange(itemValue);
+  const handleCountrySelect = (country: ICountry) => {
+    onCountrySelect && onCountrySelect(country);
     setIsPickerOpen(false);
     setSearchValue('');
   };
@@ -94,8 +98,9 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   return (
     <>
       <PickerToggler
+        {...{ isPickerOpen }}
+        callingCode={selectedCountry.callingCode}
         flag={selectedCountryFlag}
-        {...{ selectedValue, isPickerOpen }}
         onPickerToggle={handleTogglePicker}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
@@ -112,7 +117,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
             renderItem={({ item }) => (
               <PickerItem
                 {...{ item }}
-                onItemSelect={handleItemSelect}
+                onCountrySelect={handleCountrySelect}
                 textStyle={pickerItemLabelStyle}
               />
             )}

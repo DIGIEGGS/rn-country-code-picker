@@ -5,19 +5,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-import { CallingCodePicker } from './src';
+import { CallingCodePicker } from './src/components/CallingCodePicker';
 import { spacing } from './src/theme';
 
 const App = () => {
-  const [selectedCallingCode, setSelectedCallingCode] = useState<string>('90');
+  const [selectedCode, setSelectedCode] = useState<string>('90');
 
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} />
         <CallingCodePicker
-          selectedValue={selectedCallingCode}
-          onValueChange={v => setSelectedCallingCode(v)}
+          selectedCode={selectedCode}
+          onCodeChange={setSelectedCode}
           togglerContainerStyle={styles.togglerStyle}
         />
       </View>

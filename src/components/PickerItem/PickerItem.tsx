@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleProp, TextStyle, TouchableOpacity, View } from 'react-native';
 
 import { Flag } from '../Flag';
-import StyledText from '../StyledText/StyledText';
+import { StyledText } from '../StyledText';
 
 import { ICountry } from '../../types';
 
@@ -10,7 +10,7 @@ import styles from './styles';
 
 interface IPickerItemProps {
   country: ICountry;
-  onCountrySelect: (v: string) => void;
+  onCountrySelect: (code: string) => void;
   textStyle?: StyleProp<TextStyle>;
 }
 

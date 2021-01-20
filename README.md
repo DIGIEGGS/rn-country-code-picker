@@ -54,7 +54,7 @@ import { CallingCodePicker } from 'rn-country-code-picker';
 Then use it like this.
 
 ```javascript
-const [selectedCode, setSelectedCode] = useState < string > '90'; // Give it a default value to show an initial flag and a code
+const [selectedCode, setSelectedCode] = useState('90'); // Give it a default value to show an initial flag and a code
 
 return (
   <CallingCodePicker selectedCode={selectedCode} onCodeChange={code => setSelectedCode(code)} />

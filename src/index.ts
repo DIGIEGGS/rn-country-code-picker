@@ -1,1 +1,1 @@
-export { default as CallingCodePicker } from './CallingCodePicker';
+export { default as CallingCodePicker } from './components/CallingCodePicker/CallingCodePicker';

@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleProp, StyleSheet, TextInput, TextStyle, TouchableOpacity, View } from 'react-native';
+import { StyleProp, TextInput, TextStyle, TouchableOpacity, View } from 'react-native';
 
-import { colors, spacing } from '../theme';
-import { SvgSearch, SvgClose } from './icons';
+import { colors } from '../../theme';
+import { SvgSearch, SvgClose } from '../icons';
+
+import styles from './styles';
 
 interface ISearchProps {
   value: string;
@@ -18,7 +20,8 @@ const Search: React.FC<ISearchProps> = ({ value, onChangeText, inputStyle }) => 
       </View>
       <TextInput
         placeholder="Country or code"
-        {...{ value, onChangeText }}
+        value={value}
+        onChangeText={onChangeText}
         style={[styles.input, inputStyle]}
       />
       {value.length > 0 && (
@@ -33,27 +36,3 @@ const Search: React.FC<ISearchProps> = ({ value, onChangeText, inputStyle }) => 
 };
 
 export default Search;
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-  },
-  searchIconContainer: {
-    position: 'absolute',
-    left: 0,
-    top: 12,
-  },
-  input: {
-    paddingLeft: spacing.xl,
-    borderBottomColor: colors.greyLight,
-    borderBottomWidth: 1,
-  },
-  clearContainer: {
-    position: 'absolute',
-    right: 0,
-    top: 10,
-    backgroundColor: colors.greyLight,
-    borderRadius: 12,
-    padding: 2,
-  },
-});

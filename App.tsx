@@ -5,24 +5,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
+import { CallingCodePicker } from './src/components/CallingCodePicker';
 import { spacing } from './src/theme';
-import { ICountry } from './src/types';
-import { CallingCodePicker } from './src';
 
 const App = () => {
-  const [selectedCountry, setSelectedCountry] = useState<ICountry>({
-    callingCode: '90',
-    name: 'Turkey',
-    flag: '',
-  });
+  const [selectedCode, setSelectedCode] = useState<string>('90');
 
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} />
         <CallingCodePicker
-          {...{ selectedCountry }}
-          onCountrySelect={country => setSelectedCountry(country)}
+          selectedCode={selectedCode}
+          onCodeChange={setSelectedCode}
           togglerContainerStyle={styles.togglerStyle}
         />
       </View>

@@ -57,14 +57,14 @@ Then use it like this.
 const [selectedCode, setSelectedCode] = useState('');
 
 return (
-  <CallingCodePicker selectedCode={selectedCode} onCodeChange={code => setSelectedCode(code)} />
+  <CallingCodePicker selectedValue={selectedCode} onValueChange={code => setSelectedCode(code)} />
 );
 ```
 
 ## Props
 
-- [`selectedCode`](#selectedCode)
-- [`onCodeChange`](#onCodeChange)
+- [`selectedValue`](#selectedValue)
+- [`onValueChange`](#onValueChange)
 - [`togglerContainerStyle`](#containerStyle)
 - [`togglerContainerStyle`](#pickerTogglerLabelStyle)
 - [`listContainerStyle`](#listContainerStyle)
@@ -78,9 +78,9 @@ return (
 
 ## Props
 
-### `selectedCode`
+### `selectedValue`
 
-Value matching the alpha code of one the countries.
+Value matching the ISO 3166-1 alpha-2 code of one the countries.
 
 | Type   | Required |
 | ------ | -------- |
@@ -88,11 +88,11 @@ Value matching the alpha code of one the countries.
 
 ---
 
-### `onCodeChange`
+### `onValueChange`
 
 Callback for when a country is selected.
 
-- `code`: the alpha code of the selected country
+- `alpha2Code`: the ISO 3166-1 alpha-2 code of the selected country
 
 | Type     | Required |
 | -------- | -------- |

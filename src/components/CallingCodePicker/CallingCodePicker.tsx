@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
+import * as RNLocalize from 'react-native-localize';
 
 import { PickerItem } from '../PickerItem';
 import { PickerToggler } from '../PickerToggler';
@@ -12,14 +13,14 @@ import styles from './styles';
 
 interface ICallingCodePickerProps {
   /**
-   * Value matching the alpha code of one the countries.
+   * Value matching the ISO 3166-1 alpha-2 code of one the countries.
    */
-  selectedCode: string;
+  selectedValue: string;
   /**
    * Callback for when a country is selected.
-   * @param `code`: the alpha code of the selected country
+   * @param `alpha2Code`: the ISO 3166-1 alpha-2 code of the selected country
    */
-  onCodeChange: (code: string) => void;
+  onValueChange: (alpha2Code: string) => void;
   /**
    * Style to apply to the toggler container.
    */
@@ -46,16 +47,9 @@ interface ICallingCodePickerProps {
   pickerItemLabelStyle?: StyleProp<TextStyle>;
 }
 
-const initialCountry: ICountry = {
-  alpha: 'TR',
-  callingCode: '90',
-  name: 'Turkey',
-  flag: require('../../assets/flags/tr.png'),
-};
-
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
-  selectedCode,
-  onCodeChange,
+  selectedValue,
+  onValueChange,
   togglerContainerStyle,
   togglerLabelStyle,
   listContainerStyle,
@@ -65,13 +59,13 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [selectedCountry, setSelectedCountry] = useState<ICountry>(initialCountry);
+  const [selectedCountry, setSelectedCountry] = useState<ICountry | undefined>(undefined);
   const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
-
-  const alphaCodeWithFallback = selectedCode || initialCountry.alpha;
+  const localCountryCode = RNLocalize.getCountry();
+  const alphaCodeWithFallback = selectedValue || localCountryCode;
 
   const handleCountrySelect = (itemValue: string) => {
-    onCodeChange(itemValue);
+    onValueChange(itemValue);
     resetPickerState();
   };
 
@@ -83,12 +77,12 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 
   const filterCountries = useCallback(
     (country: ICountry) => {
-      const { name, callingCode, alpha } = country;
+      const { name, callingCode, alpha2Code } = country;
       const isNameMatches =
         name.toLowerCase().includes(searchValue) ||
         name.includes(searchValue) ||
-        alpha.toLowerCase() === searchValue ||
-        alpha === searchValue;
+        alpha2Code.toLowerCase() === searchValue ||
+        alpha2Code === searchValue;
       const isCodeMatches = callingCode === searchValue;
       return isNameMatches || isCodeMatches;
     },
@@ -97,7 +91,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 
   const findTheSelectedCountry = useCallback(
     (country: ICountry) => {
-      return country.alpha === alphaCodeWithFallback;
+      return country.alpha2Code === alphaCodeWithFallback;
     },
     [alphaCodeWithFallback],
   );
@@ -128,8 +122,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   return (
     <>
       <PickerToggler
-        flag={selectedCountry.flag}
-        selectedCode={selectedCountry.callingCode}
+        flag={selectedCountry?.flag}
+        selectedCode={selectedCountry?.callingCode}
         isPickerOpen={isPickerOpen}
         onPickerToggle={resetPickerState}
         containerStyle={togglerContainerStyle}

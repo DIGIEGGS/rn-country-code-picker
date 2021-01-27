@@ -1,6 +1,6 @@
 export interface ICountry {
   name: string;
-  alpha: string;
+  alpha2Code: string;
   callingCode: string;
   flag: any;
 }

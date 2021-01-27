@@ -15,9 +15,9 @@ interface IPickerItemProps {
 }
 
 const PickerItem: React.FC<IPickerItemProps> = ({ country, onCountrySelect, textStyle }) => {
-  const { name, flag, callingCode, alpha } = country;
+  const { name, flag, callingCode, alpha2Code } = country;
   return (
-    <TouchableOpacity onPress={() => onCountrySelect(alpha)}>
+    <TouchableOpacity onPress={() => onCountrySelect(alpha2Code)}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Flag flag={flag} />

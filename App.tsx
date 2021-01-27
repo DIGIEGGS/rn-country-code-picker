@@ -16,8 +16,8 @@ const App = () => {
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} />
         <CallingCodePicker
-          selectedCode={selectedCode}
-          onCodeChange={setSelectedCode}
+          selectedValue={selectedCode}
+          onValueChange={setSelectedCode}
           togglerContainerStyle={styles.togglerStyle}
         />
       </View>

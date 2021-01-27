@@ -19,7 +19,7 @@ const Search: React.FC<ISearchProps> = ({ value, onChangeText, inputStyle }) => 
         <SvgSearch color={colors.grey} />
       </View>
       <TextInput
-        placeholder="Country or code"
+        placeholder="Country, calling code or alpha (e.g: FR)"
         value={value}
         onChangeText={onChangeText}
         style={[styles.input, inputStyle]}

@@ -54,7 +54,7 @@ import { CallingCodePicker } from 'rn-country-code-picker';
 Then use it like this.
 
 ```javascript
-const [selectedCode, setSelectedCode] = useState('90'); // Give it a default value to show an initial flag and a code
+const [selectedCode, setSelectedCode] = useState('');
 
 return (
   <CallingCodePicker selectedCode={selectedCode} onCodeChange={code => setSelectedCode(code)} />
@@ -63,8 +63,8 @@ return (
 
 ## Props
 
-- [`selectedValue`](#selectedCode)
-- [`onValueChange`](#onCodeChange)
+- [`selectedCode`](#selectedCode)
+- [`onCodeChange`](#onCodeChange)
 - [`togglerContainerStyle`](#containerStyle)
 - [`togglerContainerStyle`](#pickerTogglerLabelStyle)
 - [`listContainerStyle`](#listContainerStyle)
@@ -80,19 +80,19 @@ return (
 
 ### `selectedCode`
 
-Value matching the code of one the countries.
+Value matching the alpha code of one the countries.
 
-| Type     | Required |
-| -------- | -------- |
-| ICountry | Yes      |
+| Type   | Required |
+| ------ | -------- |
+| string | Yes      |
 
 ---
 
 ### `onCodeChange`
 
-Callback for when a country code is selected.
+Callback for when a country is selected.
 
-- `code`: the code of the selected country
+- `code`: the alpha code of the selected country
 
 | Type     | Required |
 | -------- | -------- |

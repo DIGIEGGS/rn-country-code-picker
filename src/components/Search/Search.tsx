@@ -9,10 +9,11 @@ import styles from './styles';
 interface ISearchProps {
   value: string;
   onChangeText: (text: string) => void;
+  onClearInput: () => void;
   inputStyle?: StyleProp<TextStyle>;
 }
 
-const Search: React.FC<ISearchProps> = ({ value, onChangeText, inputStyle }) => {
+const Search: React.FC<ISearchProps> = ({ value, onChangeText, onClearInput, inputStyle }) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchIconContainer}>
@@ -26,7 +27,7 @@ const Search: React.FC<ISearchProps> = ({ value, onChangeText, inputStyle }) => 
       />
       {value.length > 0 && (
         <View style={styles.clearContainer}>
-          <TouchableOpacity onPress={() => onChangeText('')}>
+          <TouchableOpacity onPress={onClearInput}>
             <SvgClose color={colors.white} width={20} height={20} />
           </TouchableOpacity>
         </View>

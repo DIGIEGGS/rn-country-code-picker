@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   listContainer: {
     position: 'absolute',
-    top: 45,
+    top: 35,
     width: '100%',
     height: 300,
     paddingHorizontal: spacing.m,
@@ -19,5 +19,10 @@ export default StyleSheet.create({
   },
   list: {
     paddingVertical: spacing.s,
+  },
+  activityIndicatorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

@@ -54,13 +54,14 @@ import { CallingCodePicker } from 'rn-country-code-picker';
 Then use it like this.
 
 ```javascript
-const [selectedCode, setSelectedCode] = useState('');
+const [selectedCallingCode, setSelectedCallingCode] = useState('');
 
-return <CallingCodePicker onValueChange={code => setSelectedCode(code)} />;
+return <CallingCodePicker onValueChange={callingCode => setSelectedCallingCode(callingCode)} />;
 ```
 
 ## Props
 
+- [`initialCountryCode`](#initialCountryCode)
 - [`onValueChange`](#onValueChange)
 - [`togglerContainerStyle`](#containerStyle)
 - [`togglerContainerStyle`](#pickerTogglerLabelStyle)
@@ -74,6 +75,16 @@ return <CallingCodePicker onValueChange={code => setSelectedCode(code)} />;
 # Reference
 
 ## Props
+
+### `initialCountryCode`
+
+the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially. If you don't pass a value to this, the country code based on your device locale will be used.
+
+| Type   | Required |
+| ------ | -------- |
+| string | no       |
+
+---
 
 ### `onValueChange`
 

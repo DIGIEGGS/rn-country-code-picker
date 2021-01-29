@@ -22,6 +22,10 @@ import styles from './styles';
 
 interface ICallingCodePickerProps {
   /**
+   * the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially.
+   */
+  initialCountryCode?: string;
+  /**
    * Callback for when a country is selected.
    * @param `callingCode`: the calling code of the selected country
    */
@@ -53,6 +57,7 @@ interface ICallingCodePickerProps {
 }
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
+  initialCountryCode,
   onValueChange,
   togglerContainerStyle,
   togglerLabelStyle,
@@ -98,7 +103,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   );
 
   const findCountry = useCallback(() => {
-    const alpha2CodeWithFallback = selectedCountryState?.alpha2Code ?? localCountryCode;
+    const alpha2CodeWithFallback =
+      initialCountryCode ?? selectedCountryState?.alpha2Code ?? localCountryCode;
     toggleSearchingState();
     const filteredCountry = countries.find(
       country => country.alpha2Code === alpha2CodeWithFallback,
@@ -108,7 +114,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
       onValueChange(filteredCountry?.callingCode);
       toggleSearchingState();
     }
-  }, [localCountryCode, onValueChange, selectedCountryState]);
+  }, [initialCountryCode, localCountryCode, onValueChange, selectedCountryState]);
 
   useEffect(() => {
     findCountry();

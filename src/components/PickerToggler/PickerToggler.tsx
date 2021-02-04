@@ -10,7 +10,7 @@ import { colors } from '../../theme';
 import styles from './styles';
 
 interface IPickerTogglerProps {
-  selectedCode: string;
+  selectedCode?: string;
   flag?: any;
   isPickerOpen: boolean;
   onPickerToggle: () => void;

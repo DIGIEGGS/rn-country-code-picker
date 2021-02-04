@@ -10,14 +10,14 @@ import styles from './styles';
 
 interface IPickerItemProps {
   country: ICountry;
-  onCountrySelect: (code: string) => void;
+  onCountrySelect: (selectedCountry: ICountry) => void;
   textStyle?: StyleProp<TextStyle>;
 }
 
 const PickerItem: React.FC<IPickerItemProps> = ({ country, onCountrySelect, textStyle }) => {
   const { name, flag, callingCode } = country;
   return (
-    <TouchableOpacity onPress={() => onCountrySelect(callingCode)}>
+    <TouchableOpacity onPress={() => onCountrySelect(country)}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Flag flag={flag} />

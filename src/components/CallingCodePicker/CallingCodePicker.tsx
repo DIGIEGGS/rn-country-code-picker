@@ -1,10 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, ListRenderItemInfo, StyleProp, TextStyle, View, ViewStyle } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  ListRenderItemInfo,
+  StyleProp,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
+import * as RNLocalize from 'react-native-localize';
 
 import { PickerItem } from '../PickerItem';
 import { PickerToggler } from '../PickerToggler';
 import { Search } from '../Search';
 
+import { colors } from '../../theme';
 import { countries } from '../../data';
 import { ICountry } from '../../types';
 
@@ -12,14 +22,14 @@ import styles from './styles';
 
 interface ICallingCodePickerProps {
   /**
-   * Value matching the code of one the countries.
+   * the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially.
    */
-  selectedCode: string;
+  initialCountryCode?: string;
   /**
-   * Callback for when a country code is selected.
-   * @param `code`: the code of the selected country
+   * Callback for when a country is selected.
+   * @param `callingCode`: the calling code of the selected country
    */
-  onCodeChange: (code: string) => void;
+  onValueChange: (callingCode: string) => void;
   /**
    * Style to apply to the toggler container.
    */
@@ -47,8 +57,8 @@ interface ICallingCodePickerProps {
 }
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
-  selectedCode,
-  onCodeChange,
+  initialCountryCode,
+  onValueChange,
   togglerContainerStyle,
   togglerLabelStyle,
   listContainerStyle,
@@ -58,37 +68,68 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [selectedCountryFlag, setSelectedCountryFlag] = useState<any>();
+  const [selectedCountryState, setSelectedCountryState] = useState<ICountry | undefined>(undefined);
   const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const localCountryCode = RNLocalize.getCountry();
 
-  const handleCountrySelect = (itemValue: string) => {
-    onCodeChange(itemValue);
-    resetPickerState();
-  };
-
-  const resetPickerState = () => {
-    setIsPickerOpen(s => !s);
+  const resetPickerState = (togglePicker?: boolean) => {
+    togglePicker && setIsPickerOpen(state => !state);
     setSearchValue('');
     setCountriesData(countries);
   };
 
+  const handleCountrySelect = (selectedCountry: ICountry) => {
+    setSelectedCountryState(selectedCountry);
+    onValueChange(selectedCountry.callingCode);
+    resetPickerState(true);
+  };
+
+  const toggleSearchingState = () => {
+    setIsSearching(state => !state);
+  };
+
   const filterCountries = useCallback(
     (country: ICountry) => {
-      const { name, callingCode } = country;
+      const { name, callingCode, alpha2Code } = country;
+      const alpha2CodeMatches =
+        alpha2Code.toLowerCase() === searchValue || alpha2Code === searchValue;
       const isNameMatches = name.toLowerCase().includes(searchValue) || name.includes(searchValue);
+
       const isCodeMatches = callingCode === searchValue;
-      const condition = isNameMatches || isCodeMatches;
-      return condition;
+      return isNameMatches || isCodeMatches || alpha2CodeMatches;
     },
     [searchValue],
   );
 
-  const findTheSelectedCountry = useCallback(
-    (country: ICountry) => {
-      return country.callingCode === selectedCode;
-    },
-    [selectedCode],
-  );
+  const findCountry = useCallback(() => {
+    const alpha2CodeWithFallback =
+      initialCountryCode ?? selectedCountryState?.alpha2Code ?? localCountryCode;
+    toggleSearchingState();
+    const filteredCountry = countries.find(
+      country => country.alpha2Code === alpha2CodeWithFallback,
+    );
+    if (filteredCountry) {
+      setSelectedCountryState(filteredCountry);
+      onValueChange(filteredCountry?.callingCode);
+      toggleSearchingState();
+    }
+  }, [initialCountryCode, localCountryCode, onValueChange, selectedCountryState]);
+
+  useEffect(() => {
+    findCountry();
+  }, [findCountry]);
+
+  useEffect(() => {
+    if (searchValue.length > 0) {
+      toggleSearchingState();
+      const filtered = countries.filter(filterCountries);
+      if (filtered) {
+        setCountriesData(filtered);
+        toggleSearchingState();
+      }
+    }
+  }, [filterCountries, searchValue.length]);
 
   const renderPickerItem = (renderItem: ListRenderItemInfo<ICountry>) => {
     const { item: country } = renderItem;
@@ -101,42 +142,40 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     );
   };
 
-  useEffect(() => {
-    const selectedCountry = countries.find(findTheSelectedCountry)!;
-    const { flag } = selectedCountry;
-    setSelectedCountryFlag(flag);
-  }, [findTheSelectedCountry]);
-
-  useEffect(() => {
-    if (searchValue.length > 0) {
-      const filtered = countries.filter(filterCountries);
-      setCountriesData(filtered);
-    }
-  }, [filterCountries, searchValue.length]);
-
   return (
-    <>
+    <View style={styles.container}>
       <PickerToggler
-        flag={selectedCountryFlag}
-        selectedCode={selectedCode}
+        flag={selectedCountryState?.flag}
+        selectedCode={selectedCountryState?.callingCode}
         isPickerOpen={isPickerOpen}
-        onPickerToggle={resetPickerState}
+        onPickerToggle={() => resetPickerState(true)}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
       />
       {isPickerOpen && (
         <View style={[styles.listContainer, listContainerStyle]}>
-          <Search value={searchValue} onChangeText={setSearchValue} inputStyle={searchInputStyle} />
-          <FlatList
-            data={countriesData}
-            renderItem={renderPickerItem}
-            keyExtractor={(_, index) => index.toString()}
-            showsVerticalScrollIndicator={false}
-            style={[styles.list, listStyle]}
+          <Search
+            value={searchValue}
+            onChangeText={setSearchValue}
+            onClearInput={() => resetPickerState()}
+            inputStyle={searchInputStyle}
           />
+          {isSearching ? (
+            <View style={styles.activityIndicatorContainer}>
+              <ActivityIndicator color={colors.blue} size="large" />
+            </View>
+          ) : (
+            <FlatList
+              data={countriesData}
+              renderItem={renderPickerItem}
+              keyExtractor={(_, index) => index.toString()}
+              showsVerticalScrollIndicator={false}
+              style={[styles.list, listStyle]}
+            />
+          )}
         </View>
       )}
-    </>
+    </View>
   );
 };
 

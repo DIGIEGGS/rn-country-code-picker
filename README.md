@@ -54,19 +54,14 @@ import { CallingCodePicker } from 'rn-country-code-picker';
 Then use it like this.
 
 ```javascript
-const [selectedCallingCode, setSelectedCallingCode] = useState('90'); // Give it a default value to show an initial flag and a code
+const [selectedCallingCode, setSelectedCallingCode] = useState('');
 
-return (
-  <CallingCodePicker
-    selectedValue={selectedCallingCode}
-    onValueChange={value => setSelectedCallingCode(value)}
-  />
-);
+return <CallingCodePicker onValueChange={callingCode => setSelectedCallingCode(callingCode)} />;
 ```
 
 ## Props
 
-- [`selectedValue`](#selectedValue)
+- [`initialCountryCode`](#initialCountryCode)
 - [`onValueChange`](#onValueChange)
 - [`togglerContainerStyle`](#containerStyle)
 - [`togglerContainerStyle`](#pickerTogglerLabelStyle)
@@ -81,21 +76,21 @@ return (
 
 ## Props
 
-### `selectedValue`
+### `initialCountryCode`
 
-Value matching value of one of the items. Can be a string.
+the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially. If you don't pass a value to this, the country code based on your device locale will be used.
 
 | Type   | Required |
 | ------ | -------- |
-| string | Yes      |
+| string | no       |
 
 ---
 
 ### `onValueChange`
 
-Callback for when an item is selected. This is called with the following parameters:
+Callback for when a country is selected.
 
-- `itemValue`: the value of the item that was selected
+- `callingCode`: the calling code of the selected country
 
 | Type     | Required |
 | -------- | -------- |

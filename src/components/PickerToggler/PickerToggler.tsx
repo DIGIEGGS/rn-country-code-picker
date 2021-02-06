@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 
-import { colors } from '../theme';
-import { SvgArrowDown } from './icons';
-import Flag from './Flag';
-import StyledText from './StyledText';
+import { Flag } from '../Flag';
+import { StyledText } from '../StyledText';
+
+import { SvgArrowDown } from '../icons';
+import { colors } from '../../theme';
+
+import styles from './styles';
 
 interface IPickerTogglerProps {
-  selectedValue: string;
+  selectedCode?: string;
   flag?: any;
   isPickerOpen: boolean;
   onPickerToggle: () => void;
@@ -16,7 +19,7 @@ interface IPickerTogglerProps {
 }
 
 const PickerToggler: React.FC<IPickerTogglerProps> = ({
-  selectedValue,
+  selectedCode,
   flag,
   isPickerOpen,
   onPickerToggle,
@@ -35,8 +38,8 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
     <View style={containerStyle}>
       <TouchableOpacity onPress={onPickerToggle}>
         <View style={styles.innerContainer}>
-          <Flag {...{ flag }} />
-          <StyledText style={textStyle}>{`+${selectedValue}`}</StyledText>
+          <Flag flag={flag} />
+          <StyledText style={textStyle}>{`+${selectedCode}`}</StyledText>
           <View style={arrowDownStyle}>
             <SvgArrowDown color={colors.black} width={18} height={18} />
           </View>
@@ -47,14 +50,3 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
 };
 
 export default PickerToggler;
-
-const styles = StyleSheet.create({
-  innerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  imageContainer: {
-    width: 40,
-    height: 30,
-  },
-});

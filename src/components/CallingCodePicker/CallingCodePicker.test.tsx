@@ -10,5 +10,6 @@ test('renders correctly', () => {
   const { toJSON } = render(<CallingCodePicker onValueChange={onValueChangeMockFn} />);
   const rendered = toJSON();
 
+  expect(onValueChangeMockFn).toHaveBeenCalledWith('1');
   expect(rendered).toMatchSnapshot();
 });

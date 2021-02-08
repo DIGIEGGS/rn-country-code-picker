@@ -42,6 +42,8 @@
     "@babel/runtime": "^7.8.4",
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
     "@types/react-test-renderer": "^16.9.2",
@@ -55,8 +57,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "react-native-svg": "^12.1.0",
-    "react-native-localize": "^2.0.1"
+    "react-native-localize": "^2.0.1",
+    "react-native-svg": "^12.1.0"
   },
   "repository": {
     "type": "git",
@@ -66,6 +68,9 @@
   "license": "MIT",
   "jest": {
     "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

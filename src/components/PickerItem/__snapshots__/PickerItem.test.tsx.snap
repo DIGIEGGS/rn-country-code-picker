@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="picker-item"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#C4C4C4",
+        "borderBottomWidth": 1,
+        "flexDirection": "row",
+        "marginBottom": 16,
+        "paddingBottom": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": 30,
+          "marginRight": 16,
+          "width": 40,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderRadius": 4,
+            "height": 30,
+            "marginRight": 8,
+            "width": 40,
+          }
+        }
+      >
+        <Image
+          resizeMethod="scale"
+          source={
+            Object {
+              "testUri": "../../../src/assets/flags/tr.png",
+            }
+          }
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+          testID="flag-image"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginRight": 16,
+          "width": 60,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#111111",
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            undefined,
+          ]
+        }
+      >
+        +90
+      </Text>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#111111",
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+        ]
+      }
+    >
+      Turkey
+    </Text>
+  </View>
+</View>
+`;

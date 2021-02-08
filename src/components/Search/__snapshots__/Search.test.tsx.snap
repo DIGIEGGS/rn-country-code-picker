@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "top": 12,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={24}
+      bbWidth={24}
+      color={4291085508}
+      fill="none"
+      focusable={false}
+      height={24}
+      meetOrSlice={0}
+      minX={0}
+      minY={0}
+      stroke="currentColor"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "flex": 0,
+            "height": 24,
+            "width": 24,
+          },
+        ]
+      }
+      tintColor={4291085508}
+      vbHeight={24}
+      vbWidth={24}
+      width={24}
+    >
+      <RNSVGGroup
+        fill={null}
+        propList={
+          Array [
+            "fill",
+            "stroke",
+          ]
+        }
+        stroke={
+          Array [
+            2,
+          ]
+        }
+      >
+        <RNSVGPath
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          propList={
+            Array [
+              "strokeWidth",
+              "strokeLinecap",
+              "strokeLinejoin",
+            ]
+          }
+          strokeLinecap={1}
+          strokeLinejoin={1}
+          strokeWidth={2}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Country, calling code or alpha (e.g: FR)"
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#D5D5D5",
+          "borderBottomWidth": 1,
+          "paddingLeft": 32,
+        },
+        undefined,
+      ]
+    }
+    testID="search-input"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+</View>
+`;

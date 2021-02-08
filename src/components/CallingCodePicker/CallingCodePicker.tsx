@@ -68,13 +68,13 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [selectedCountryState, setSelectedCountryState] = useState<ICountry | undefined>(undefined);
+  const [selectedCountryState, setSelectedCountryState] = useState<ICountry | null>(null);
   const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const localCountryCode = RNLocalize.getCountry();
 
-  const resetPickerState = (togglePicker?: boolean) => {
-    togglePicker && setIsPickerOpen(state => !state);
+  const resetPickerState = () => {
+    setIsPickerOpen(false);
     setSearchValue('');
     setCountriesData(countries);
   };
@@ -82,7 +82,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   const handleCountrySelect = (selectedCountry: ICountry) => {
     setSelectedCountryState(selectedCountry);
     onValueChange(selectedCountry.callingCode);
-    resetPickerState(true);
+    resetPickerState();
   };
 
   const toggleSearchingState = () => {
@@ -147,17 +147,15 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
       <PickerToggler
         flag={selectedCountryState?.flag}
         selectedCode={selectedCountryState?.callingCode}
-        isPickerOpen={isPickerOpen}
-        onPickerToggle={() => resetPickerState(true)}
+        onPickerToggle={setIsPickerOpen}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
       />
       {isPickerOpen && (
         <View style={[styles.listContainer, listContainerStyle]}>
           <Search
-            value={searchValue}
             onChangeText={setSearchValue}
-            onClearInput={() => resetPickerState()}
+            onClearInput={resetPickerState}
             inputStyle={searchInputStyle}
           />
           {isSearching ? (

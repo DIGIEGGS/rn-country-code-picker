@@ -10,7 +10,7 @@ interface IFlagProps {
 const Flag: React.FC<IFlagProps> = ({ flag }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={flag} resizeMethod="scale" />
+      <Image style={styles.image} source={flag} resizeMethod="scale" testID="flag-image" />
     </View>
   );
 };

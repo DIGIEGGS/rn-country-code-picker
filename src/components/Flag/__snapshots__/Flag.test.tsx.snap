@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderRadius": 4,
+      "height": 30,
+      "marginRight": 8,
+      "width": 40,
+    }
+  }
+>
+  <Image
+    resizeMethod="scale"
+    source={
+      Object {
+        "testUri": "../../../src/assets/flags/tr.png",
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+    testID="flag-image"
+  />
+</View>
+`;

@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="toggler-button"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderRadius": 4,
+            "height": 30,
+            "marginRight": 8,
+            "width": 40,
+          }
+        }
+      >
+        <Image
+          resizeMethod="scale"
+          source={
+            Object {
+              "testUri": "../../../src/assets/flags/tr.png",
+            }
+          }
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+          testID="flag-image"
+        />
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#111111",
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            undefined,
+          ]
+        }
+      >
+        +90
+      </Text>
+      <View
+        style={
+          Object {
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+        testID="arrow-down-icon"
+      >
+        <RNSVGSvgView
+          align="xMidYMid"
+          bbHeight={18}
+          bbWidth={18}
+          color={4279308561}
+          fill="none"
+          focusable={false}
+          height={18}
+          meetOrSlice={0}
+          minX={0}
+          minY={0}
+          stroke="currentColor"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderWidth": 0,
+              },
+              Object {
+                "flex": 0,
+                "height": 18,
+                "width": 18,
+              },
+            ]
+          }
+          tintColor={4279308561}
+          vbHeight={24}
+          vbWidth={24}
+          width={18}
+        >
+          <RNSVGGroup
+            fill={null}
+            propList={
+              Array [
+                "fill",
+                "stroke",
+              ]
+            }
+            stroke={
+              Array [
+                2,
+              ]
+            }
+          >
+            <RNSVGPath
+              d="M19 9l-7 7-7-7"
+              propList={
+                Array [
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={2}
+            />
+          </RNSVGGroup>
+        </RNSVGSvgView>
+      </View>
+    </View>
+  </View>
+</View>
+`;

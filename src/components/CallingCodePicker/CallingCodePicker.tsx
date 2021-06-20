@@ -170,6 +170,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
               renderItem={renderPickerItem}
               keyExtractor={(_, index) => index.toString()}
               showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled"
               style={[styles.list, listStyle]}
             />
           )}

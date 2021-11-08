@@ -13,6 +13,6 @@ export const spacing = {
   xl: 32,
 };
 
-export const borderRadii = {
+export const borderRadius = {
   s: 4,
 };

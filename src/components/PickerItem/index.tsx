@@ -1,18 +1,9 @@
 import React from 'react';
-import { StyleProp, TextStyle, TouchableOpacity, View } from 'react-native';
-
-import { Flag } from '../Flag';
-import { StyledText } from '../StyledText';
-
-import { ICountry } from '../../types';
-
+import { TouchableOpacity, View } from 'react-native';
+import { IPickerItemProps } from '../../types';
+import Flag from '../Flag';
+import StyledText from '../StyledText';
 import styles from './styles';
-
-interface IPickerItemProps {
-  country: ICountry;
-  onCountrySelect: (selectedCountry: ICountry) => void;
-  textStyle?: StyleProp<TextStyle>;
-}
 
 const PickerItem: React.FC<IPickerItemProps> = ({ country, onCountrySelect, textStyle }) => {
   const { name, flag, callingCode } = country;

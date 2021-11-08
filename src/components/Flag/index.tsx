@@ -1,11 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-
+import { IFlagProps } from '../../types';
 import styles from './styles';
-
-interface IFlagProps {
-  flag?: any;
-}
 
 const Flag: React.FC<IFlagProps> = ({ flag }) => {
   return (

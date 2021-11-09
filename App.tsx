@@ -4,8 +4,9 @@
 
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import { CallingCodePicker } from './src/components/CallingCodePicker';
+import CallingCodePicker from './src/components/CallingCodePicker';
+import PickerItem from './src/components/PickerItem';
+import countries from './src/data/countries';
 import { spacing } from './src/theme';
 
 const App = () => {
@@ -14,10 +15,14 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>selected code is: {selectedCode}</Text>
-      <CallingCodePicker onValueChange={setSelectedCode} />
+      <CallingCodePicker
+        onValueChange={setSelectedCode}
+        style={{ position: 'absolute', left: 150, bottom: 200 }}
+      />
     </View>
   );
 };
+
 export default App;
 
 const styles = StyleSheet.create({

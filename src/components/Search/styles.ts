@@ -1,27 +1,29 @@
 import { StyleSheet } from 'react-native';
-
 import { colors, spacing } from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    position: 'relative',
+    width: '100%',
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    flexDirection: 'row',
   },
   searchIconContainer: {
-    position: 'absolute',
-    left: 0,
-    top: 12,
+    alignSelf: 'center',
   },
   input: {
-    paddingLeft: spacing.xl,
-    borderBottomColor: colors.greyLight,
-    borderBottomWidth: 1,
+    marginHorizontal: spacing.s,
+    marginVertical: spacing.m,
+    fontSize: 17,
+    flex: 1,
   },
   clearContainer: {
-    position: 'absolute',
-    right: 0,
-    top: 10,
     backgroundColor: colors.greyLight,
-    borderRadius: 12,
-    padding: 2,
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

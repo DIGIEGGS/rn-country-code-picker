@@ -15,4 +15,7 @@ export const spacing = {
 
 export const borderRadii = {
   s: 4,
+  m: 10,
 };
+
+export const MODAL_SIZE = 300;

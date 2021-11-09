@@ -15,10 +15,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>selected code is: {selectedCode}</Text>
-      <CallingCodePicker
-        onValueChange={setSelectedCode}
-        style={{ position: 'absolute', left: 150, bottom: 200 }}
-      />
+      <CallingCodePicker onValueChange={setSelectedCode} />
     </View>
   );
 };

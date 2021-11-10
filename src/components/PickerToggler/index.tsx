@@ -5,16 +5,8 @@ import { colors } from '../../theme';
 import { IItemMeasure, IPickerTogglerProps } from '../../types';
 import Flag from '../Flag';
 import { SvgArrowDown } from '../icons';
+import StyledText from '../StyledText';
 import styles from './styles';
-
-interface IPickerTogglerProps {
-  selectedCode?: string;
-  flag?: any;
-  isPickerOpen: boolean;
-  onPickerToggle: () => void;
-  containerStyle?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-}
 
 const PickerToggler: React.FC<IPickerTogglerProps> = ({
   selectedCode,

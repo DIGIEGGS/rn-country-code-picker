@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleProp, TextStyle, TouchableOpacity, View } from 'react-native';
-import { ICountry } from '../../types';
-import { Flag } from '../Flag';
-import { StyledText } from '../StyledText';
+import { TouchableOpacity, View } from 'react-native';
+import { IPickerItemProps } from '../../types';
+import Flag from '../Flag';
+import StyledText from '../StyledText';
 import styles from './styles';
 
 const PickerItem: React.FC<IPickerItemProps> = ({

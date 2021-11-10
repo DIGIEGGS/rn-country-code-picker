@@ -1,55 +1,18 @@
-import React, { createRef, useCallback, useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import {
-    ActivityIndicator, Dimensions, FlatList, FlexAlignType, KeyboardAvoidingView,
-    ListRenderItemInfo, Modal, Platform, ScrollView, Text, TouchableOpacity,
-    TouchableWithoutFeedback, View
+    Dimensions, FlatList, KeyboardAvoidingView, ListRenderItemInfo, Modal, Platform,
+    TouchableOpacity, View
 } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
 import countries from '../../data/countries';
 import { onLayoutToggle } from '../../functions/utility';
-import { colors, MODAL_SIZE, spacing } from '../../theme';
+import { MODAL_SIZE, spacing } from '../../theme';
 import { ICallingCodePickerProps, ICountry, IItemMeasure } from '../../types';
 import ItemSeparator from '../ItemSeparator';
 import PickerItem from '../PickerItem';
 import PickerToggler from '../PickerToggler';
 import Search from '../Search';
 import useStyles from './styles';
-
-interface ICallingCodePickerProps {
-  /**
-   * the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially.
-   */
-  initialCountryCode?: string;
-  /**
-   * Callback for when a country is selected.
-   * @param `callingCode`: the calling code of the selected country
-   */
-  onValueChange: (callingCode: string) => void;
-  /**
-   * Style to apply to the toggler container.
-   */
-  togglerContainerStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to the picker toggler label.
-   */
-  togglerLabelStyle?: StyleProp<TextStyle>;
-  /**
-   * Style to apply to the list container.
-   */
-  listContainerStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to the search input.
-   */
-  searchInputStyle?: StyleProp<TextStyle>;
-  /**
-   * Style to apply to the FlatList component.
-   */
-  listStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to each of the item labels.
-   */
-  pickerItemLabelStyle?: StyleProp<TextStyle>;
-}
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   initialCountryCode,

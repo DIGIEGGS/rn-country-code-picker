@@ -1,6 +1,21 @@
 import { useMemo } from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import { borderRadii, borderRadius, colors, MODAL_SIZE, spacing } from '../../theme';
+import { borderRadius, colors, MODAL_SIZE, spacing } from '../../theme';
+
+const shadowStyle = StyleSheet.create({
+  listContainer:
+    Platform.OS === 'ios'
+      ? {
+          shadowColor: colors.black,
+          shadowOpacity: 0.5,
+          shadowRadius: 5,
+          shadowOffset: { height: 2, width: 2 },
+        }
+      : {
+          elevation: 3,
+          overflow: 'hidden',
+        },
+});
 
 const styles = (y: number) =>
   useMemo(

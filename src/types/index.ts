@@ -1,6 +1,4 @@
-import { StyleProp, TextStyle, View, ViewStyle } from 'react-native';
-
-export type Nullable<T> = T | null;
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export interface ICountry {
   name: string;

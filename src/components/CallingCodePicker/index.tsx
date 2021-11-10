@@ -1,13 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, ListRenderItemInfo, View } from 'react-native';
+import React, { createRef, useEffect, useState } from 'react';
+import {
+    Dimensions, FlatList, KeyboardAvoidingView, ListRenderItemInfo, Modal, Platform,
+    TouchableOpacity, View
+} from 'react-native';
 import * as RNLocalize from 'react-native-localize';
 import countries from '../../data/countries';
-import { colors } from '../../theme';
-import { ICallingCodePickerProps, ICountry } from '../../types';
+import { onLayoutToggle } from '../../functions/utility';
+import { MODAL_SIZE, spacing } from '../../theme';
+import { ICallingCodePickerProps, ICountry, IItemMeasure } from '../../types';
+import ItemSeparator from '../ItemSeparator';
 import PickerItem from '../PickerItem';
 import PickerToggler from '../PickerToggler';
 import Search from '../Search';
-import styles from './styles';
+import useStyles from './styles';
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   initialCountryCode,
@@ -18,71 +23,34 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   listStyle,
   pickerItemLabelStyle,
   searchInputStyle,
+  pickerItemContainerStyle,
+  style,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [selectedCountryState, setSelectedCountryState] = useState<ICountry | undefined>(undefined);
   const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  const localCountryCode = RNLocalize.getCountry();
-
-  const resetPickerState = (togglePicker?: boolean) => {
-    togglePicker && setIsPickerOpen(state => !state);
-    setSearchValue('');
-    setCountriesData(countries);
-  };
+  const localCountryCode = countries.find(f => f.alpha2Code === RNLocalize.getCountry());
+  const [selectedCountry, setSelectedCountry] = useState<ICountry | undefined>(localCountryCode);
+  const containerRef = createRef<View>();
+  const [toggleMeasure, setToggleMeasure] = useState<IItemMeasure>();
+  const [containerMeasure, setContainerMeasure] = useState<IItemMeasure>();
+  const styles = useStyles(calculateModalVerticalPosition());
 
   const handleCountrySelect = (selectedCountry: ICountry) => {
-    setSelectedCountryState(selectedCountry);
+    setSelectedCountry(selectedCountry);
     onValueChange(selectedCountry.callingCode);
-    resetPickerState(true);
+    setIsPickerOpen(false);
   };
 
-  const toggleSearchingState = () => {
-    setIsSearching(state => !state);
-  };
-
-  const filterCountries = useCallback(
-    (country: ICountry) => {
-      const { name, callingCode, alpha2Code } = country;
-      const alpha2CodeMatches =
-        alpha2Code.toLowerCase() === searchValue || alpha2Code === searchValue;
-      const isNameMatches = name.toLowerCase().includes(searchValue) || name.includes(searchValue);
-
-      const isCodeMatches = callingCode === searchValue;
-      return isNameMatches || isCodeMatches || alpha2CodeMatches;
-    },
-    [searchValue],
-  );
-
-  const findCountry = useCallback(() => {
-    const alpha2CodeWithFallback =
-      initialCountryCode ?? selectedCountryState?.alpha2Code ?? localCountryCode;
-    toggleSearchingState();
-    const filteredCountry = countries.find(
-      country => country.alpha2Code === alpha2CodeWithFallback,
+  useEffect(() => {
+    const newCountries = countries.filter(
+      s =>
+        s.alpha2Code.toLowerCase().includes(searchValue.toLowerCase()) ||
+        s.name.toLowerCase().includes(searchValue.toLowerCase()),
     );
-    if (filteredCountry) {
-      setSelectedCountryState(filteredCountry);
-      onValueChange(filteredCountry?.callingCode);
-      toggleSearchingState();
-    }
-  }, [initialCountryCode, localCountryCode, onValueChange, selectedCountryState]);
 
-  useEffect(() => {
-    findCountry();
-  }, [findCountry]);
-
-  useEffect(() => {
-    if (searchValue.length > 0) {
-      toggleSearchingState();
-      const filtered = countries.filter(filterCountries);
-      if (filtered) {
-        setCountriesData(filtered);
-        toggleSearchingState();
-      }
-    }
-  }, [filterCountries, searchValue.length]);
+    setCountriesData(newCountries);
+  }, [searchValue]);
 
   const renderPickerItem = (renderItem: ListRenderItemInfo<ICountry>) => {
     const { item: country } = renderItem;
@@ -91,43 +59,62 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
         country={country}
         onCountrySelect={handleCountrySelect}
         textStyle={pickerItemLabelStyle}
+        containerStyle={pickerItemContainerStyle}
       />
     );
   };
 
+  const ListView = () => (
+    <View style={listContainerStyle ?? styles.listContainer}>
+      <Search
+        value={searchValue}
+        onChangeText={setSearchValue}
+        onClearInput={() => setSearchValue('')}
+        inputStyle={searchInputStyle}
+      />
+      <FlatList
+        data={countriesData}
+        renderItem={renderPickerItem}
+        keyExtractor={(_, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        style={listStyle}
+        ItemSeparatorComponent={ItemSeparator}
+      />
+    </View>
+  );
+
+  function calculateModalVerticalPosition() {
+    const screenHeight = Dimensions.get('window').height;
+    const y = (containerMeasure?.y ?? 0) + (toggleMeasure?.height ?? 0);
+    return y + MODAL_SIZE > screenHeight ? screenHeight - MODAL_SIZE - 2 * spacing.s : y;
+  }
+
   return (
-    <View style={styles.container}>
+    <View
+      style={style}
+      ref={containerRef}
+      onLayout={() => onLayoutToggle(containerRef, measure => setContainerMeasure(measure))}
+    >
       <PickerToggler
-        flag={selectedCountryState?.flag}
-        selectedCode={selectedCountryState?.callingCode}
+        flag={selectedCountry?.flag}
+        selectedCode={selectedCountry?.callingCode}
         isPickerOpen={isPickerOpen}
-        onPickerToggle={() => resetPickerState(true)}
+        onPickerToggle={() => setIsPickerOpen(true)}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
+        onLayout={measure => setToggleMeasure(measure)}
       />
-      {isPickerOpen && (
-        <View style={[styles.listContainer, listContainerStyle]}>
-          <Search
-            value={searchValue}
-            onChangeText={setSearchValue}
-            onClearInput={() => resetPickerState()}
-            inputStyle={searchInputStyle}
-          />
-          {isSearching ? (
-            <View style={styles.activityIndicatorContainer}>
-              <ActivityIndicator color={colors.blue} size="large" />
-            </View>
-          ) : (
-            <FlatList
-              data={countriesData}
-              renderItem={renderPickerItem}
-              keyExtractor={(_, index) => index.toString()}
-              showsVerticalScrollIndicator={false}
-              style={[styles.list, listStyle]}
-            />
-          )}
+      <Modal visible={isPickerOpen} transparent animationType="fade">
+        <View style={styles.modalChild}>
+          <TouchableOpacity style={styles.dismissButton} onPress={() => setIsPickerOpen(false)} />
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'position' : 'height'}
+            style={styles.keyboardAvoidingView}
+          >
+            <ListView />
+          </KeyboardAvoidingView>
         </View>
-      )}
+      </Modal>
     </View>
   );
 };

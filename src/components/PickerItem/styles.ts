@@ -4,20 +4,13 @@ import { colors, spacing } from '../../theme';
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingBottom: spacing.m,
-    marginBottom: spacing.m,
-    borderBottomColor: colors.grey,
-    borderBottomWidth: 1,
+    padding: spacing.s,
   },
   imageContainer: {
-    width: 40,
-    height: 30,
-    borderRadius: 4,
-    marginRight: spacing.m,
+    alignSelf: 'center',
   },
   codeContainer: {
-    width: 60,
-    marginRight: spacing.m,
+    alignSelf: 'center',
   },
+  textStyle: { alignSelf: 'center' },
 });

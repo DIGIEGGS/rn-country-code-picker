@@ -38,9 +38,17 @@ export interface ICallingCodePickerProps {
    */
   listStyle?: StyleProp<ViewStyle>;
   /**
+   * Style to apply to each of the item container.
+   */
+  pickerItemContainerStyle?: StyleProp<ViewStyle>;
+  /**
    * Style to apply to each of the item labels.
    */
   pickerItemLabelStyle?: StyleProp<TextStyle>;
+  /**
+   * Style to apply to container.
+   */
+  style?: StyleProp<ViewStyle>;
 }
 
 export interface IFlagProps {
@@ -51,6 +59,7 @@ export interface IPickerItemProps {
   country: ICountry;
   onCountrySelect: (selectedCountry: ICountry) => void;
   textStyle?: StyleProp<TextStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
 export interface IPickerTogglerProps {
@@ -60,6 +69,7 @@ export interface IPickerTogglerProps {
   onPickerToggle: () => void;
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  onLayout: (measure: IItemMeasure) => void;
 }
 
 export interface ISearchProps {
@@ -71,4 +81,11 @@ export interface ISearchProps {
 
 export interface IStyledTextProps {
   style?: StyleProp<TextStyle>;
+}
+
+export interface IItemMeasure {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 }

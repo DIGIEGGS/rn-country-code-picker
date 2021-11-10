@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import { borderRadius, colors, spacing } from '../../theme';
+import { borderRadius, colors, MODAL_SIZE, spacing } from '../../theme';
 
 const shadowStyle = StyleSheet.create({
   listContainer:
@@ -16,26 +17,35 @@ const shadowStyle = StyleSheet.create({
         },
 });
 
-export default StyleSheet.create({
-  container: {
-    position: 'relative',
-  },
-  listContainer: {
-    ...shadowStyle.listContainer,
-    position: 'absolute',
-    top: 35,
-    width: '100%',
-    height: 300,
-    paddingHorizontal: spacing.m,
-    backgroundColor: colors.white,
-    borderRadius: borderRadius.s,
-  },
-  list: {
-    paddingVertical: spacing.s,
-  },
-  activityIndicatorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const styles = (y: number) =>
+  useMemo(
+    () =>
+      StyleSheet.create({
+        listContainer: {
+          ...shadowStyle.listContainer,
+          width: '100%',
+          height: MODAL_SIZE,
+          backgroundColor: colors.white,
+          padding: spacing.m,
+          borderRadius: borderRadius.m,
+          justifyContent: 'center',
+          marginTop: spacing.s,
+        },
+        activityIndicatorContainer: {
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        keyboardAvoidingView: {
+          position: 'absolute',
+          alignSelf: 'center',
+          top: y,
+          width: '90%',
+        },
+        dismissButton: { flex: 1, width: '100%' },
+        modalChild: { flex: 1, width: '100%', justifyContent: 'center' },
+      }),
+    [y],
+  );
+
+export default styles;

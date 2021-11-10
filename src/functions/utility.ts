@@ -9,7 +9,6 @@ export async function onLayoutToggle(
   if (ref) {
     ref.current?.measure((x, y, width, height) => {
       const measure = { x, y, width, height };
-      console.log(measure);
       callback(measure);
     });
   }

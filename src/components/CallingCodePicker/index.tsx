@@ -1,60 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  ListRenderItemInfo,
-  StyleProp,
-  TextStyle,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { ActivityIndicator, FlatList, ListRenderItemInfo, View } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
-
-import { PickerItem } from '../PickerItem';
-import { PickerToggler } from '../PickerToggler';
-import { Search } from '../Search';
-
+import countries from '../../data/countries';
 import { colors } from '../../theme';
-import { countries } from '../../data';
-import { ICountry } from '../../types';
-
+import { ICallingCodePickerProps, ICountry } from '../../types';
+import PickerItem from '../PickerItem';
+import PickerToggler from '../PickerToggler';
+import Search from '../Search';
 import styles from './styles';
-
-interface ICallingCodePickerProps {
-  /**
-   * the ISO 3166-1 alpha-2 code (FR, US, CA) of the country that you would like to show initially.
-   */
-  initialCountryCode?: string;
-  /**
-   * Callback for when a country is selected.
-   * @param `callingCode`: the calling code of the selected country
-   */
-  onValueChange: (callingCode: string) => void;
-  /**
-   * Style to apply to the toggler container.
-   */
-  togglerContainerStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to the picker toggler label.
-   */
-  togglerLabelStyle?: StyleProp<TextStyle>;
-  /**
-   * Style to apply to the list container.
-   */
-  listContainerStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to the search input.
-   */
-  searchInputStyle?: StyleProp<TextStyle>;
-  /**
-   * Style to apply to the FlatList component.
-   */
-  listStyle?: StyleProp<ViewStyle>;
-  /**
-   * Style to apply to each of the item labels.
-   */
-  pickerItemLabelStyle?: StyleProp<TextStyle>;
-}
 
 const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   initialCountryCode,

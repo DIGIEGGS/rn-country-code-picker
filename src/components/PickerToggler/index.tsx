@@ -1,22 +1,11 @@
 import React from 'react';
 import { StyleProp, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
-
-import { Flag } from '../Flag';
-import { StyledText } from '../StyledText';
-
-import { SvgArrowDown } from '../icons';
 import { colors } from '../../theme';
-
+import { IPickerTogglerProps } from '../../types';
+import Flag from '../Flag';
+import { SvgArrowDown } from '../icons';
+import StyledText from '../StyledText';
 import styles from './styles';
-
-interface IPickerTogglerProps {
-  selectedCode?: string;
-  flag?: any;
-  isPickerOpen: boolean;
-  onPickerToggle: () => void;
-  containerStyle?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-}
 
 const PickerToggler: React.FC<IPickerTogglerProps> = ({
   selectedCode,

@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   input: {
     marginHorizontal: spacing.s,
-    marginVertical: spacing.m,
+    marginVertical: spacing.s,
     fontSize: 17,
     flex: 1,
   },

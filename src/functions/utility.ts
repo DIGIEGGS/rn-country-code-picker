@@ -7,8 +7,8 @@ export async function onLayoutToggle(
   callback: (measure: IItemMeasure) => void,
 ) {
   if (ref) {
-    ref.current?.measure((x, y, width, height) => {
-      const measure = { x, y, width, height };
+    ref.current?.measure((x, y, width, height, px, py) => {
+      const measure = { x: px, y: py, width, height };
       callback(measure);
     });
   }

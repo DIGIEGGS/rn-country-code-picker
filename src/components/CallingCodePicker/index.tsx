@@ -40,14 +40,30 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     setSelectedCountry(selectedCountry);
     onValueChange(selectedCountry.callingCode);
     setIsPickerOpen(false);
+    setSearchValue('');
   };
 
+  const sortData = (countries: Array<ICountry>) =>
+    countries.sort((a, b) =>
+      a.name.toLowerCase() === searchValue.toLowerCase()
+        ? -1
+        : a.alpha2Code.toLowerCase() === searchValue.toLowerCase()
+        ? -1
+        : a.callingCode === searchValue
+        ? -1
+        : a.name < b.name
+        ? -1
+        : 1,
+    );
+
   useEffect(() => {
-    const newCountries = countries.filter(
+    let newCountries = countries.filter(
       s =>
         s.alpha2Code.toLowerCase().includes(searchValue.toLowerCase()) ||
         s.name.toLowerCase().includes(searchValue.toLowerCase()),
     );
+
+    newCountries = sortData(newCountries);
 
     setCountriesData(newCountries);
   }, [searchValue]);
@@ -64,29 +80,16 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     );
   };
 
-  const ListView = () => (
-    <View style={listContainerStyle ?? styles.listContainer}>
-      <Search
-        value={searchValue}
-        onChangeText={setSearchValue}
-        onClearInput={() => setSearchValue('')}
-        inputStyle={searchInputStyle}
-      />
-      <FlatList
-        data={countriesData}
-        renderItem={renderPickerItem}
-        keyExtractor={(_, index) => index.toString()}
-        showsVerticalScrollIndicator={false}
-        style={listStyle}
-        ItemSeparatorComponent={ItemSeparator}
-      />
-    </View>
-  );
-
   function calculateModalVerticalPosition() {
     const screenHeight = Dimensions.get('window').height;
     const y = (containerMeasure?.y ?? 0) + (toggleMeasure?.height ?? 0);
+
     return y + MODAL_SIZE > screenHeight ? screenHeight - MODAL_SIZE - 2 * spacing.s : y;
+  }
+
+  function dismissPicker() {
+    setIsPickerOpen(false);
+    setSearchValue('');
   }
 
   return (
@@ -106,12 +109,29 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
       />
       <Modal visible={isPickerOpen} transparent animationType="fade">
         <View style={styles.modalChild}>
-          <TouchableOpacity style={styles.dismissButton} onPress={() => setIsPickerOpen(false)} />
+          <TouchableOpacity style={styles.dismissButton} onPress={dismissPicker} />
           <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'position' : 'height'}
+            behavior="position"
             style={styles.keyboardAvoidingView}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 10 : -60}
           >
-            <ListView />
+            <View style={listContainerStyle ?? styles.listContainer}>
+              <Search
+                value={searchValue}
+                onChangeText={setSearchValue}
+                onClearInput={() => setSearchValue('')}
+                inputStyle={searchInputStyle}
+              />
+              <FlatList
+                data={countriesData}
+                renderItem={renderPickerItem}
+                keyExtractor={(_, index) => index.toString()}
+                showsVerticalScrollIndicator={false}
+                style={listStyle}
+                ItemSeparatorComponent={ItemSeparator}
+                keyboardShouldPersistTaps="handled"
+              />
+            </View>
           </KeyboardAvoidingView>
         </View>
       </Modal>

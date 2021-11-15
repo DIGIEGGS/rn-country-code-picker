@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-
-import { Flag } from '.';
 import mockCountry from '../../__mocks__/country';
+import Flag from './';
 
 test('renders correctly', () => {
   const mockFlag = mockCountry.flag;

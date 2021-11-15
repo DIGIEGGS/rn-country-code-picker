@@ -4,16 +4,17 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "position": "relative",
+      "alignSelf": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "width": "100%",
     }
   }
 >
   <View
     style={
       Object {
-        "left": 0,
-        "position": "absolute",
-        "top": 12,
+        "alignSelf": "center",
       }
     }
   >
@@ -78,23 +79,20 @@ exports[`renders correctly 1`] = `
     </RNSVGSvgView>
   </View>
   <TextInput
-    allowFontScaling={true}
     onChangeText={[Function]}
-    placeholder="Country, calling code or alpha (e.g: FR)"
-    rejectResponderTermination={true}
+    placeholder="Country name or abbreviation"
     style={
       Array [
         Object {
-          "borderBottomColor": "#D5D5D5",
-          "borderBottomWidth": 1,
-          "paddingLeft": 32,
+          "flex": 1,
+          "fontSize": 17,
+          "marginHorizontal": 8,
+          "marginVertical": 16,
         },
         undefined,
       ]
     }
     testID="search-input"
-    underlineColorAndroid="transparent"
-    value=""
   />
 </View>
 `;

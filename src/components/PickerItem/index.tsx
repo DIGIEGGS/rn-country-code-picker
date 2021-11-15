@@ -13,7 +13,7 @@ const PickerItem: React.FC<IPickerItemProps> = ({
 }) => {
   const { name, flag, callingCode } = country;
   return (
-    <TouchableOpacity onPress={() => onCountrySelect(country)}>
+    <TouchableOpacity onPress={() => onCountrySelect(country)} testID="picker-item">
       <View style={containerStyle ?? styles.container}>
         <View style={styles.imageContainer}>
           <Flag flag={flag} />

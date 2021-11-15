@@ -1,14 +1,15 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-
-import { Search } from '.';
+import Search from './';
 
 const onChangeTextMockFn = jest.fn();
 const onClearInputMockFn = jest.fn();
+
+const SEARCH_VALUE = 'Turkey';
+
 const SEARCH_COMPONENT = (
   <Search onChangeText={onChangeTextMockFn} onClearInput={onClearInputMockFn} />
 );
-const SEARCH_VALUE = 'Turkey';
 
 test('renders correctly', () => {
   const { toJSON } = render(SEARCH_COMPONENT);

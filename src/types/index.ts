@@ -66,14 +66,14 @@ export interface IPickerTogglerProps {
   selectedCode?: string;
   flag?: any;
   isPickerOpen: boolean;
-  onPickerToggle: () => void;
+  onPickerToggle: (state: boolean) => void;
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   onLayout: (measure: IItemMeasure) => void;
 }
 
 export interface ISearchProps {
-  value: string;
+  value?: string;
   onChangeText: (text: string) => void;
   onClearInput: () => void;
   inputStyle?: StyleProp<TextStyle>;

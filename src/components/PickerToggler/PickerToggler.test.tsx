@@ -1,8 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-
-import { PickerToggler } from '.';
 import mockCountry from '../../__mocks__/country';
+import PickerToggler from './';
 
 const onPickerToggleMockFn = jest.fn();
 
@@ -11,6 +10,8 @@ const PICKER_TOGGLER_COMPONENT = (
     flag={mockCountry.flag}
     selectedCode={mockCountry.callingCode}
     onPickerToggle={onPickerToggleMockFn}
+    onLayout={() => {}}
+    isPickerOpen={false}
   />
 );
 

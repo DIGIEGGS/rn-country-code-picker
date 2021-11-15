@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-
-import { CallingCodePicker } from '.';
+import CallingCodePicker from './';
 
 jest.mock('react-native-localize');
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-
-import { PickerItem } from '.';
 import mockCountry from '../../__mocks__/country';
+import PickerItem from './';
 
 const onCountrySelectMockFn = jest.fn();
 

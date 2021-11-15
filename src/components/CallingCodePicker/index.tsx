@@ -30,7 +30,11 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
   const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
   const localCountryCode = countries.find(f => f.alpha2Code === RNLocalize.getCountry());
-  const [selectedCountry, setSelectedCountry] = useState<ICountry | undefined>(localCountryCode);
+  const [selectedCountry, setSelectedCountry] = useState<ICountry | undefined>(
+    initialCountryCode
+      ? countries.find(f => f.alpha2Code === initialCountryCode) ?? localCountryCode
+      : localCountryCode,
+  );
   const containerRef = createRef<View>();
   const [toggleMeasure, setToggleMeasure] = useState<IItemMeasure>();
   const [containerMeasure, setContainerMeasure] = useState<IItemMeasure>();
@@ -38,7 +42,6 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 
   const handleCountrySelect = (selectedCountry: ICountry) => {
     setSelectedCountry(selectedCountry);
-    onValueChange(selectedCountry.callingCode);
     setIsPickerOpen(false);
   };
 
@@ -88,6 +91,10 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     const y = (containerMeasure?.y ?? 0) + (toggleMeasure?.height ?? 0);
     return y + MODAL_SIZE > screenHeight ? screenHeight - MODAL_SIZE - 2 * spacing.s : y;
   }
+
+  useEffect(() => {
+    onValueChange(selectedCountry.callingCode);
+  }, [selectedCountry]);
 
   return (
     <View

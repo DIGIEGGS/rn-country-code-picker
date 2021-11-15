@@ -3,7 +3,9 @@
 exports[`renders correctly 1`] = `
 <View
   accessible={true}
+  collapsable={false}
   focusable={true}
+  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -21,22 +23,15 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
-        "borderBottomColor": "#C4C4C4",
-        "borderBottomWidth": 1,
         "flexDirection": "row",
-        "marginBottom": 16,
-        "paddingBottom": 16,
+        "padding": 8,
       }
     }
   >
     <View
       style={
         Object {
-          "borderRadius": 4,
-          "height": 30,
-          "marginRight": 16,
-          "width": 40,
+          "alignSelf": "center",
         }
       }
     >
@@ -70,8 +65,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "marginRight": 16,
-          "width": 60,
+          "alignSelf": "center",
         }
       }
     >
@@ -98,7 +92,9 @@ exports[`renders correctly 1`] = `
             "fontSize": 16,
             "lineHeight": 24,
           },
-          undefined,
+          Object {
+            "alignSelf": "center",
+          },
         ]
       }
     >

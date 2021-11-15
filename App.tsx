@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import CallingCodePicker from './src/components/CallingCodePicker';
 import { spacing } from './src/theme';
 
@@ -7,10 +7,10 @@ const App = () => {
   const [selectedCode, setSelectedCode] = useState<string>('');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>selected code is: {selectedCode}</Text>
       <CallingCodePicker onValueChange={setSelectedCode} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -19,7 +19,7 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     paddingHorizontal: spacing.l,
   },
 });

@@ -1,12 +1,11 @@
 import { StyleSheet } from 'react-native';
-
-import { borderRadii, spacing } from '../../theme';
+import { borderRadius, spacing } from '../../theme';
 
 export default StyleSheet.create({
   container: {
     width: 40,
     height: 30,
-    borderRadius: borderRadii.s,
+    borderRadius: borderRadius.s,
     marginRight: spacing.s,
   },
   image: {

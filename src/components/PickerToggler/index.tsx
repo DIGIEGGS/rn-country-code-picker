@@ -1,22 +1,12 @@
-import React from 'react';
+import React, { createRef, useRef } from 'react';
 import { StyleProp, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
-
-import { Flag } from '../Flag';
-import { StyledText } from '../StyledText';
-
-import { SvgArrowDown } from '../icons';
+import { onLayoutToggle } from '../../functions/utility';
 import { colors } from '../../theme';
-
+import { IItemMeasure, IPickerTogglerProps } from '../../types';
+import Flag from '../Flag';
+import { SvgArrowDown } from '../icons';
+import StyledText from '../StyledText';
 import styles from './styles';
-
-interface IPickerTogglerProps {
-  selectedCode?: string;
-  flag?: any;
-  isPickerOpen: boolean;
-  onPickerToggle: () => void;
-  containerStyle?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-}
 
 const PickerToggler: React.FC<IPickerTogglerProps> = ({
   selectedCode,
@@ -25,7 +15,10 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
   onPickerToggle,
   containerStyle,
   textStyle,
+  onLayout,
 }) => {
+  const containerRef = createRef<View>();
+
   const arrowDownStyle: StyleProp<ViewStyle> = {
     transform: [
       {
@@ -35,7 +28,11 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
   };
 
   return (
-    <View style={containerStyle}>
+    <View
+      style={containerStyle}
+      ref={containerRef}
+      onLayout={() => onLayoutToggle(containerRef, measure => onLayout(measure))}
+    >
       <TouchableOpacity onPress={onPickerToggle}>
         <View style={styles.innerContainer}>
           <Flag flag={flag} />

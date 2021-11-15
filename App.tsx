@@ -1,11 +1,6 @@
-/**
- * @format
- */
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import { CallingCodePicker } from './src/components/CallingCodePicker';
+import CallingCodePicker from './src/components/CallingCodePicker';
 import { spacing } from './src/theme';
 
 const App = () => {
@@ -18,6 +13,7 @@ const App = () => {
     </View>
   );
 };
+
 export default App;
 
 const styles = StyleSheet.create({

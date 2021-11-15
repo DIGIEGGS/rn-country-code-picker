@@ -28,33 +28,29 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "bob build"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "react": "16.13.1",
-    "react-native": "0.63.3",
-    "react-native-localize": "^2.0.1",
-    "react-native-svg": "^12.1.0"
+    "react": "^17.0.2",
+    "react-native": "^0.66.2",
+    "react-native-localize": "^2.1.5",
+    "react-native-svg": "^12.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/runtime": "^7.8.4",
-    "@react-native-community/bob": "^0.16.2",
-    "@react-native-community/eslint-config": "^1.1.0",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.65.0",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^3.8.3",
     "@testing-library/jest-native": "^3.4.3",
-    "@testing-library/react-native": "^7.1.0",
-    "@types/jest": "^25.2.3",
-    "@types/react-native": "^0.63.2",
-    "@types/react-test-renderer": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
-    "babel-jest": "^25.1.0",
-    "eslint": "^6.5.1",
-    "jest": "^25.1.0",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1",
-    "typescript": "^3.8.3"
+    "@testing-library/react-native": "^7.1.0"
   },
   "peerDependencies": {
     "react-native-localize": "^2.0.1",
@@ -64,8 +60,9 @@
     "type": "git",
     "url": "git+https://github.com/DIGIEGGS/rn-country-code-picker"
   },
-  "author": "Fatih Can <contact@fatihcan.dev>",
-  "license": "MIT",
+  "resolutions": {
+    "@types/react": "^17"
+  },
   "jest": {
     "preset": "react-native",
     "setupFilesAfterEnv": [
@@ -78,14 +75,6 @@
       "jsx",
       "json",
       "node"
-    ]
-  },
-  "@react-native-community/bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "module",
-      "typescript"
     ]
   }
 }

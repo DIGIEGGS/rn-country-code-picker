@@ -4,7 +4,7 @@ import { IStyledTextProps } from '../../types';
 import styles from './styles';
 
 const StyledText: React.FC<IStyledTextProps> = ({ children, style }) => {
-  return <Text style={[styles.text, style]}>{children}</Text>;
+  return <Text style={[styles.text, style]}>{children} </Text>;
 };
 
 export default StyledText;

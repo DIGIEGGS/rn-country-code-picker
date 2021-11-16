@@ -87,7 +87,7 @@ exports[`renders correctly 1`] = `
           "flex": 1,
           "fontSize": 17,
           "marginHorizontal": 8,
-          "marginVertical": 16,
+          "marginVertical": 8,
         },
         undefined,
       ]

@@ -14,5 +14,6 @@ exports[`renders correctly 1`] = `
   }
 >
   Test Text
+   
 </Text>
 `;

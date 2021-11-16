@@ -71,6 +71,7 @@ exports[`renders correctly 1`] = `
           }
         >
           +1
+           
         </Text>
         <View
           style={
@@ -156,8 +157,6 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "flex": 1,
-          "justifyContent": "center",
-          "width": "100%",
         }
       }
     >
@@ -205,7 +204,7 @@ exports[`renders correctly 1`] = `
                 "height": 300,
                 "justifyContent": "center",
                 "marginTop": 8,
-                "padding": 16,
+                "padding": 8,
                 "shadowColor": "#111111",
                 "shadowOffset": Object {
                   "height": 2,
@@ -303,7 +302,7 @@ exports[`renders correctly 1`] = `
                       "flex": 1,
                       "fontSize": 17,
                       "marginHorizontal": 8,
-                      "marginVertical": 16,
+                      "marginVertical": 8,
                     },
                     undefined,
                   ]
@@ -323,14 +322,6 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/af.png",
                     },
                     "name": "Afghanistan",
-                  },
-                  Object {
-                    "alpha2Code": "AX",
-                    "callingCode": "358",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/ax.png",
-                    },
-                    "name": "Åland Islands",
                   },
                   Object {
                     "alpha2Code": "AL",
@@ -573,22 +564,6 @@ exports[`renders correctly 1`] = `
                     "name": "British Indian Ocean Territory",
                   },
                   Object {
-                    "alpha2Code": "VG",
-                    "callingCode": "1284",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/vg.png",
-                    },
-                    "name": "Virgin Islands (British)",
-                  },
-                  Object {
-                    "alpha2Code": "VI",
-                    "callingCode": "1 340",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/vi.png",
-                    },
-                    "name": "Virgin Islands (U.S.)",
-                  },
-                  Object {
                     "alpha2Code": "BN",
                     "callingCode": "673",
                     "flag": Object {
@@ -621,6 +596,14 @@ exports[`renders correctly 1`] = `
                     "name": "Burundi",
                   },
                   Object {
+                    "alpha2Code": "CV",
+                    "callingCode": "238",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/cv.png",
+                    },
+                    "name": "Cabo Verde",
+                  },
+                  Object {
                     "alpha2Code": "KH",
                     "callingCode": "855",
                     "flag": Object {
@@ -643,14 +626,6 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/ca.png",
                     },
                     "name": "Canada",
-                  },
-                  Object {
-                    "alpha2Code": "CV",
-                    "callingCode": "238",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/cv.png",
-                    },
-                    "name": "Cabo Verde",
                   },
                   Object {
                     "alpha2Code": "KY",
@@ -795,6 +770,14 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/cz.png",
                     },
                     "name": "Czech Republic",
+                  },
+                  Object {
+                    "alpha2Code": "CI",
+                    "callingCode": "225",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/ci.png",
+                    },
+                    "name": "Côte d'Ivoire",
                   },
                   Object {
                     "alpha2Code": "DK",
@@ -1133,14 +1116,6 @@ exports[`renders correctly 1`] = `
                     "name": "Indonesia",
                   },
                   Object {
-                    "alpha2Code": "CI",
-                    "callingCode": "225",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/ci.png",
-                    },
-                    "name": "Côte d'Ivoire",
-                  },
-                  Object {
                     "alpha2Code": "IR",
                     "callingCode": "98",
                     "flag": Object {
@@ -1243,6 +1218,22 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/ki.png",
                     },
                     "name": "Kiribati",
+                  },
+                  Object {
+                    "alpha2Code": "KP",
+                    "callingCode": "850",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/kp.png",
+                    },
+                    "name": "Korea (Democratic People's Republic of)",
+                  },
+                  Object {
+                    "alpha2Code": "KR",
+                    "callingCode": "82",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/kr.png",
+                    },
+                    "name": "Korea (Republic of)",
                   },
                   Object {
                     "alpha2Code": "KW",
@@ -1605,14 +1596,6 @@ exports[`renders correctly 1`] = `
                     "name": "Norfolk Island",
                   },
                   Object {
-                    "alpha2Code": "KP",
-                    "callingCode": "850",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/kp.png",
-                    },
-                    "name": "Korea (Democratic People's Republic of)",
-                  },
-                  Object {
                     "alpha2Code": "MP",
                     "callingCode": "1670",
                     "flag": Object {
@@ -1749,14 +1732,6 @@ exports[`renders correctly 1`] = `
                     "name": "Republic of Kosovo",
                   },
                   Object {
-                    "alpha2Code": "RE",
-                    "callingCode": "262",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/re.png",
-                    },
-                    "name": "Réunion",
-                  },
-                  Object {
                     "alpha2Code": "RO",
                     "callingCode": "40",
                     "flag": Object {
@@ -1779,6 +1754,14 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/rw.png",
                     },
                     "name": "Rwanda",
+                  },
+                  Object {
+                    "alpha2Code": "RE",
+                    "callingCode": "262",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/re.png",
+                    },
+                    "name": "Réunion",
                   },
                   Object {
                     "alpha2Code": "BL",
@@ -1963,14 +1946,6 @@ exports[`renders correctly 1`] = `
                       "testUri": "../../../src/assets/flags/gs.png",
                     },
                     "name": "South Georgia and the South Sandwich Islands",
-                  },
-                  Object {
-                    "alpha2Code": "KR",
-                    "callingCode": "82",
-                    "flag": Object {
-                      "testUri": "../../../src/assets/flags/kr.png",
-                    },
-                    "name": "Korea (Republic of)",
                   },
                   Object {
                     "alpha2Code": "SS",
@@ -2245,6 +2220,22 @@ exports[`renders correctly 1`] = `
                     "name": "Viet Nam",
                   },
                   Object {
+                    "alpha2Code": "VG",
+                    "callingCode": "1284",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/vg.png",
+                    },
+                    "name": "Virgin Islands (British)",
+                  },
+                  Object {
+                    "alpha2Code": "VI",
+                    "callingCode": "1 340",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/vi.png",
+                    },
+                    "name": "Virgin Islands (U.S.)",
+                  },
+                  Object {
                     "alpha2Code": "WF",
                     "callingCode": "681",
                     "flag": Object {
@@ -2284,11 +2275,20 @@ exports[`renders correctly 1`] = `
                     },
                     "name": "Zimbabwe",
                   },
+                  Object {
+                    "alpha2Code": "AX",
+                    "callingCode": "358",
+                    "flag": Object {
+                      "testUri": "../../../src/assets/flags/ax.png",
+                    },
+                    "name": "Åland Islands",
+                  },
                 ]
               }
               getItem={[Function]}
               getItemCount={[Function]}
               keyExtractor={[Function]}
+              keyboardShouldPersistTaps="handled"
               onContentSizeChange={[Function]}
               onLayout={[Function]}
               onMomentumScrollBegin={[Function]}
@@ -2310,9 +2310,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -2389,6 +2387,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +93
+                           
                         </Text>
                       </View>
                       <Text
@@ -2406,6 +2405,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Afghanistan
+                         
                       </Text>
                     </View>
                   </View>
@@ -2425,124 +2425,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                    testID="picker-item"
-                  >
-                    <View
-                      style={
-                        Object {
-                          "flexDirection": "row",
-                          "padding": 8,
-                        }
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "alignSelf": "center",
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Object {
-                              "borderRadius": 4,
-                              "height": 30,
-                              "marginRight": 8,
-                              "width": 40,
-                            }
-                          }
-                        >
-                          <Image
-                            resizeMethod="scale"
-                            source={
-                              Object {
-                                "testUri": "../../../src/assets/flags/ax.png",
-                              }
-                            }
-                            style={
-                              Object {
-                                "height": "100%",
-                                "width": "100%",
-                              }
-                            }
-                            testID="flag-image"
-                          />
-                        </View>
-                      </View>
-                      <View
-                        style={
-                          Object {
-                            "alignSelf": "center",
-                          }
-                        }
-                      >
-                        <Text
-                          style={
-                            Array [
-                              Object {
-                                "color": "#111111",
-                                "fontSize": 16,
-                                "lineHeight": 24,
-                              },
-                              undefined,
-                            ]
-                          }
-                        >
-                          +358
-                        </Text>
-                      </View>
-                      <Text
-                        style={
-                          Array [
-                            Object {
-                              "color": "#111111",
-                              "fontSize": 16,
-                              "lineHeight": 24,
-                            },
-                            Object {
-                              "alignSelf": "center",
-                            },
-                          ]
-                        }
-                      >
-                        Åland Islands
-                      </Text>
-                    </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "backgroundColor": "#D5D5D5",
-                        "height": 1,
-                        "width": "100%",
-                      }
-                    }
-                  />
-                </View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -2619,6 +2502,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +355
+                           
                         </Text>
                       </View>
                       <Text
@@ -2636,6 +2520,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Albania
+                         
                       </Text>
                     </View>
                   </View>
@@ -2655,9 +2540,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -2734,6 +2617,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +213
+                           
                         </Text>
                       </View>
                       <Text
@@ -2751,6 +2635,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Algeria
+                         
                       </Text>
                     </View>
                   </View>
@@ -2770,9 +2655,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -2849,6 +2732,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +1684
+                           
                         </Text>
                       </View>
                       <Text
@@ -2866,6 +2750,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         American Samoa
+                         
                       </Text>
                     </View>
                   </View>
@@ -2885,9 +2770,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -2964,6 +2847,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +376
+                           
                         </Text>
                       </View>
                       <Text
@@ -2981,6 +2865,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Andorra
+                         
                       </Text>
                     </View>
                   </View>
@@ -3000,9 +2885,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -3079,6 +2962,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +244
+                           
                         </Text>
                       </View>
                       <Text
@@ -3096,6 +2980,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Angola
+                         
                       </Text>
                     </View>
                   </View>
@@ -3115,9 +3000,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -3194,6 +3077,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +1264
+                           
                         </Text>
                       </View>
                       <Text
@@ -3211,6 +3095,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Anguilla
+                         
                       </Text>
                     </View>
                   </View>
@@ -3230,9 +3115,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -3309,6 +3192,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +672
+                           
                         </Text>
                       </View>
                       <Text
@@ -3326,6 +3210,7 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Antarctica
+                         
                       </Text>
                     </View>
                   </View>
@@ -3345,9 +3230,7 @@ exports[`renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    collapsable={false}
                     focusable={true}
-                    nativeID="animatedComponent"
                     onClick={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
@@ -3424,6 +3307,7 @@ exports[`renders correctly 1`] = `
                           }
                         >
                           +1268
+                           
                         </Text>
                       </View>
                       <Text
@@ -3441,6 +3325,122 @@ exports[`renders correctly 1`] = `
                         }
                       >
                         Antigua and Barbuda
+                         
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#D5D5D5",
+                        "height": 1,
+                        "width": "100%",
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                    testID="picker-item"
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "padding": 8,
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignSelf": "center",
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "borderRadius": 4,
+                              "height": 30,
+                              "marginRight": 8,
+                              "width": 40,
+                            }
+                          }
+                        >
+                          <Image
+                            resizeMethod="scale"
+                            source={
+                              Object {
+                                "testUri": "../../../src/assets/flags/ar.png",
+                              }
+                            }
+                            style={
+                              Object {
+                                "height": "100%",
+                                "width": "100%",
+                              }
+                            }
+                            testID="flag-image"
+                          />
+                        </View>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "alignSelf": "center",
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Array [
+                              Object {
+                                "color": "#111111",
+                                "fontSize": 16,
+                                "lineHeight": 24,
+                              },
+                              undefined,
+                            ]
+                          }
+                        >
+                          +54
+                           
+                        </Text>
+                      </View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#111111",
+                              "fontSize": 16,
+                              "lineHeight": 24,
+                            },
+                            Object {
+                              "alignSelf": "center",
+                            },
+                          ]
+                        }
+                      >
+                        Argentina
+                         
                       </Text>
                     </View>
                   </View>

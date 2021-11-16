@@ -8,13 +8,13 @@ import styles from './styles';
 const Search: React.FC<ISearchProps> = ({ value, onChangeText, onClearInput, inputStyle }) => {
   const [valueState, setValueState] = useState(value);
 
-  useEffect(() => {
-    setValueState(value);
-    console.log(value);
-  }, [value]);
+  function handleChangeText(text: string) {
+    onChangeText(text);
+    setValueState(text);
+  }
 
   function handleClear() {
-    setValueState('');
+    handleChangeText('');
     onClearInput();
   }
 
@@ -26,14 +26,11 @@ const Search: React.FC<ISearchProps> = ({ value, onChangeText, onClearInput, inp
       <TextInput
         placeholder="Country name or abbreviation"
         value={valueState}
-        onChangeText={text => {
-          console.log(text);
-          onChangeText(text);
-        }}
+        onChangeText={handleChangeText}
         style={[styles.input, inputStyle]}
         testID="search-input"
       />
-      {value ? (
+      {valueState ? (
         <View style={styles.clearContainer}>
           <TouchableOpacity onPress={handleClear} testID="clear-button">
             <SvgClose color={colors.white} width={20} height={20} />

@@ -33,7 +33,7 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
       ref={containerRef}
       onLayout={() => onLayoutToggle(containerRef, measure => onLayout(measure))}
     >
-      <TouchableOpacity onPress={() => onPickerToggle(isPickerOpen)} testID="toggler-button">
+      <TouchableOpacity onPress={() => onPickerToggle(!isPickerOpen)} testID="toggler-button">
         <View style={styles.innerContainer}>
           <Flag flag={flag} />
           <StyledText style={textStyle}>{`+${selectedCode}`}</StyledText>

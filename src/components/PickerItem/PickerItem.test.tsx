@@ -12,8 +12,8 @@ const PICKER_ITEM_COMPONENT = (
 test('renders correctly', () => {
   const { toJSON, getByText } = render(PICKER_ITEM_COMPONENT);
   const rendered = toJSON();
-  const name = getByText(`${mockCountry.name}`);
-  const callingCode = getByText(`+${mockCountry.callingCode}`);
+  const name = getByText(`${mockCountry.name} `);
+  const callingCode = getByText(`+${mockCountry.callingCode} `);
 
   expect(name).toBeTruthy();
   expect(callingCode).toBeTruthy();

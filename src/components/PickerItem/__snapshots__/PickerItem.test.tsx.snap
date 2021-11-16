@@ -82,6 +82,7 @@ exports[`renders correctly 1`] = `
         }
       >
         +90
+         
       </Text>
     </View>
     <Text
@@ -99,6 +100,7 @@ exports[`renders correctly 1`] = `
       }
     >
       Turkey
+       
     </Text>
   </View>
 </View>

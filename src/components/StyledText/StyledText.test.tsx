@@ -7,6 +7,6 @@ test('renders correctly', () => {
   const { toJSON, getByText } = render(<StyledText>{text}</StyledText>);
   const rendered = toJSON();
 
-  expect(getByText(text)).toBeTruthy();
+  expect(getByText(`${text} `)).toBeTruthy();
   expect(rendered).toMatchSnapshot();
 });

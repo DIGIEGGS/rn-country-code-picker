@@ -16,7 +16,7 @@ export interface ICallingCodePickerProps {
    * Callback for when a country is selected.
    * @param `callingCode`: the calling code of the selected country
    */
-  onValueChange: (callingCode: string) => void;
+  onValueChange: (callingCode?: string) => void;
   /**
    * Style to apply to the toggler container.
    */

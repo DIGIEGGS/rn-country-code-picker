@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import CallingCodePicker from './src/components/CallingCodePicker';
 import { spacing } from './src/theme';
 
 const App = () => {
-  const [selectedCode, setSelectedCode] = useState<string>('');
+  const [selectedCode, setSelectedCode] = useState<string | undefined>('');
 
   return (
     <SafeAreaView style={styles.container}>
       <Text>selected code is: {selectedCode}</Text>
-      <CallingCodePicker onValueChange={setSelectedCode} />
+      <CallingCodePicker onValueChange={text => setSelectedCode(text)} />
     </SafeAreaView>
   );
 };

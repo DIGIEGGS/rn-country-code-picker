@@ -1,0 +1,1 @@
+/bin/sh: /Users/abdullah/.npm/_npx/0416a26ba5543342/node_modules/bob/node_modules/rimraf/bin.js: No such file or directory

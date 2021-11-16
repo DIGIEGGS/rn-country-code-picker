@@ -18,7 +18,7 @@ const PICKER_TOGGLER_COMPONENT = (
 test('renders correctly', () => {
   const { toJSON, getByText } = render(PICKER_TOGGLER_COMPONENT);
   const rendered = toJSON();
-  const callingCode = getByText(`+${mockCountry.callingCode}`);
+  const callingCode = getByText(`+${mockCountry.callingCode} `);
 
   expect(callingCode).toBeTruthy();
   expect(rendered).toMatchSnapshot();
@@ -29,7 +29,4 @@ test('toggles picker on click', () => {
   const toggler = getByTestId('toggler-button');
   fireEvent.press(toggler);
   expect(onPickerToggleMockFn).toHaveBeenCalledWith(true);
-
-  fireEvent.press(toggler);
-  expect(onPickerToggleMockFn).toHaveBeenCalledWith(false);
 });

@@ -91,7 +91,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   }
 
   useEffect(() => {
-    onValueChange(selectedCountry.callingCode);
+    onValueChange(selectedCountry?.callingCode);
   }, [selectedCountry]);
 
   function dismissPicker() {
@@ -109,7 +109,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
         flag={selectedCountry?.flag}
         selectedCode={selectedCountry?.callingCode}
         isPickerOpen={isPickerOpen}
-        onPickerToggle={() => setIsPickerOpen(true)}
+        onPickerToggle={setIsPickerOpen}
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
         onLayout={measure => setToggleMeasure(measure)}

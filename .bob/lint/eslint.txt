@@ -1,0 +1,8 @@
+
+Oops! Something went wrong! :(
+
+ESLint: 7.32.0
+
+No files matching the pattern "lib/" were found.
+Please check for typing mistakes in the pattern.
+

@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
 import countries from '../../data/countries';
-import { onLayoutToggle } from '../../functions/utility';
+import { onLayoutToggle, sortData } from '../../functions/utility';
 import { MODAL_SIZE, spacing } from '../../theme';
 import { ICallingCodePickerProps, ICountry, IItemMeasure } from '../../types';
 import ItemSeparator from '../ItemSeparator';
@@ -28,7 +28,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [countriesData, setCountriesData] = useState<ICountry[]>(countries);
+  const [countriesData, setCountriesData] = useState<ICountry[]>(sortData(countries, ''));
   const localCountryCode = countries.find(f => f.alpha2Code === RNLocalize.getCountry());
   const [selectedCountry, setSelectedCountry] = useState<ICountry | undefined>(
     initialCountryCode
@@ -46,27 +46,15 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
     setSearchValue('');
   };
 
-  const sortData = (countries: Array<ICountry>) =>
-    countries.sort((a, b) =>
-      a.name.toLowerCase() === searchValue.toLowerCase()
-        ? -1
-        : a.alpha2Code.toLowerCase() === searchValue.toLowerCase()
-        ? -1
-        : a.callingCode === searchValue
-        ? -1
-        : a.name < b.name
-        ? -1
-        : 1,
-    );
-
   useEffect(() => {
     let newCountries = countries.filter(
       s =>
-        s.alpha2Code.toLowerCase().includes(searchValue.toLowerCase()) ||
-        s.name.toLowerCase().includes(searchValue.toLowerCase()),
+        s.callingCode === searchValue.trim() ||
+        s.alpha2Code.trim().toLowerCase().includes(searchValue.trim().toLowerCase()) ||
+        s.name.trim().toLowerCase().includes(searchValue.trim().toLowerCase()),
     );
 
-    newCountries = sortData(newCountries);
+    newCountries = sortData(newCountries, searchValue);
 
     setCountriesData(newCountries);
   }, [searchValue]);

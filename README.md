@@ -12,7 +12,7 @@ This component is not supported in the managed workflow for expo for the time be
 
 ## Getting started
 
-`npm install @digieggs/rn-country-code-picker --save`
+`npm install @digieggs/rn-country-code-picker`
 
 or
 
@@ -20,11 +20,11 @@ or
 
 Also you need to manually install `react-native-svg` library for the icons in the component
 
-`npm install react-native-svg --save`
+`npm install react-native-svg react-native-localize`
 
 or
 
-`yarn add react-native-svg`
+`yarn add react-native-svg react-native-localize`
 
 ### For react-native@0.60.0 or above
 
@@ -48,7 +48,7 @@ No additional step is required.
 First of all, import the component.
 
 ```javascript
-import { CallingCodePicker } from 'rn-country-code-picker';
+import { CallingCodePicker } from '@digieggs/rn-country-code-picker';
 ```
 
 Then use it like this.
@@ -64,11 +64,13 @@ return <CallingCodePicker onValueChange={callingCode => setSelectedCallingCode(c
 - [`initialCountryCode`](#initialCountryCode)
 - [`onValueChange`](#onValueChange)
 - [`togglerContainerStyle`](#containerStyle)
-- [`togglerContainerStyle`](#pickerTogglerLabelStyle)
+- [`togglerLabelStyle`](#pickerTogglerLabelStyle)
 - [`listContainerStyle`](#listContainerStyle)
 - [`searchInputStyle`](#searchInputStyle)
 - [`listStyle`](#listStyle)
 - [`pickerItemLabelStyle`](#pickerItemLabelStyle)
+- [`pickerItemContainerStyle`](#pickerItemContainerStyle)
+- [`style`](#style)
 
 ---
 
@@ -100,7 +102,7 @@ Callback for when a country is selected.
 
 ### `togglerContainerStyle`
 
-Style to apply to the toggler container container. (for ex. you can give absolute positioning to align it inside the input.)
+Style to apply to the toggler container.
 
 | Type      | Required |
 | --------- | -------- |
@@ -151,6 +153,26 @@ Style to apply to the FlatList component.
 ### `pickerItemLabelStyle`
 
 Style to apply to each of the item labels.
+
+| Type      | Required |
+| --------- | -------- |
+| StyleProp | No       |
+
+---
+
+### `pickerItemContainerStyle`
+
+Style to apply to each of the item container.
+
+| Type      | Required |
+| --------- | -------- |
+| StyleProp | No       |
+
+---
+
+### `style`
+
+Style to apply to container.
 
 | Type      | Required |
 | --------- | -------- |

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="picker-item"
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "padding": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderRadius": 4,
+            "height": 30,
+            "marginRight": 8,
+            "width": 40,
+          }
+        }
+      >
+        <Image
+          resizeMethod="scale"
+          source={
+            Object {
+              "testUri": "../../../src/assets/flags/tr.png",
+            }
+          }
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+          testID="flag-image"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#111111",
+              "fontSize": 16,
+              "lineHeight": 24,
+            },
+            undefined,
+          ]
+        }
+      >
+        +90
+         
+      </Text>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#111111",
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          Object {
+            "alignSelf": "center",
+          },
+        ]
+      }
+    >
+      Turkey
+       
+    </Text>
+  </View>
+</View>
+`;

@@ -1,6 +1,6 @@
 {
   "name": "@digieggs/rn-country-code-picker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",
@@ -28,9 +28,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "bob build"
   },
   "dependencies": {
+    "@testing-library/react-native": "^8.0.0",
     "react": "^17.0.2",
     "react-native": "^0.66.2",
     "react-native-localize": "^2.1.5",
@@ -40,6 +42,8 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.65.0",
     "@types/react-test-renderer": "^17.0.1",
@@ -47,10 +51,9 @@
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
+    "react-native-builder-bob": "^0.18.2",
     "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3",
-    "@testing-library/jest-native": "^3.4.3",
-    "@testing-library/react-native": "^7.1.0"
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "react-native-localize": "^2.0.1",
@@ -75,6 +78,22 @@
       "jsx",
       "json",
       "node"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
     ]
-  }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }

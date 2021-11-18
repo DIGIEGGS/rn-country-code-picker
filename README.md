@@ -4,7 +4,7 @@
 
 A searchable dropdown component to select a country code for your phone number input.
 
-<img src="https://github.com/DIGIEGGS/rn-country-code-picker/blob/main/screenshot/picker.gif?raw=true" width="300">
+<img src="https://user-images.githubusercontent.com/89466000/142383483-3cccf747-202c-4bd1-a337-1b11cb495bba.gif" width="300">
 
 ## For Managed Workflow users using Expo
 
@@ -18,7 +18,7 @@ or
 
 `yarn add @digieggs/rn-country-code-picker`
 
-Also you need to manually install `react-native-svg` library for the icons in the component
+Also you need to manually install `react-native-svg` and `react-native-localize` libraries for the icons in the component
 
 `npm install react-native-svg react-native-localize`
 

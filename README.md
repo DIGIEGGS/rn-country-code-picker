@@ -1,5 +1,7 @@
 # React Native Country Code Picker
 
+You can read our article about this package: https://medium.com/digieggs/complete-guide-to-using-country-code-picker-in-your-react-native-projects-daedc55cc4c4
+
 ## ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![npm](https://img.shields.io/npm/v/@digieggs/rn-country-code-picker) ![npm](https://img.shields.io/npm/dm/@digieggs/rn-country-code-picker)
 
 A searchable dropdown component to select a country code for your phone number input.

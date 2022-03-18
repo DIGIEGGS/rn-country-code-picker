@@ -49,6 +49,10 @@ export interface ICallingCodePickerProps {
    * Style to apply to container.
    */
   style?: StyleProp<ViewStyle>;
+  /**
+   * Visibility of flag component
+   */
+  isFlagVisible?: boolean;
 }
 
 export interface IFlagProps {
@@ -70,6 +74,7 @@ export interface IPickerTogglerProps {
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   onLayout: (measure: IItemMeasure) => void;
+  isFlagVisible?: boolean;
 }
 
 export interface ISearchProps {

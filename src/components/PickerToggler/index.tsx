@@ -16,7 +16,6 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
   containerStyle,
   textStyle,
   onLayout,
-  customFlag,
   isFlagVisible = true,
 }) => {
   const containerRef = createRef<View>();
@@ -37,7 +36,7 @@ const PickerToggler: React.FC<IPickerTogglerProps> = ({
     >
       <TouchableOpacity onPress={() => onPickerToggle(!isPickerOpen)} testID="toggler-button">
         <View style={styles.innerContainer}>
-          {isFlagVisible && (customFlag ?? <Flag flag={flag} />)}
+          {isFlagVisible && <Flag flag={flag} />}
           <StyledText style={textStyle}>{`+${selectedCode}`}</StyledText>
           <View style={arrowDownStyle}>
             <SvgArrowDown color={colors.black} width={18} height={18} />

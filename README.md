@@ -73,6 +73,7 @@ return <CallingCodePicker onValueChange={callingCode => setSelectedCallingCode(c
 - [`pickerItemLabelStyle`](#pickerItemLabelStyle)
 - [`pickerItemContainerStyle`](#pickerItemContainerStyle)
 - [`style`](#style)
+- [`isFlagVisible`](#isFlagVisible)
 
 ---
 
@@ -179,6 +180,16 @@ Style to apply to container.
 | Type      | Required |
 | --------- | -------- |
 | StyleProp | No       |
+
+---
+
+### `isFlagVisible`
+
+Visibility of flag component.
+
+| Type    | Required |
+| ------- | -------- |
+| boolean | No       |
 
 ---
 

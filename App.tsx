@@ -21,11 +21,7 @@ const App = () => {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
       >
         <View style={styles.inputContainer}>
-          <CallingCodePicker
-            isFlagVisible={false}
-            onValueChange={text => setSelectedCode(text)}
-            style={styles.picker}
-          />
+          <CallingCodePicker onValueChange={text => setSelectedCode(text)} style={styles.picker} />
           <TextInput style={styles.input} keyboardType="number-pad" />
         </View>
       </KeyboardAvoidingView>

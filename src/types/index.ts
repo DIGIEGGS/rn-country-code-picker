@@ -50,10 +50,6 @@ export interface ICallingCodePickerProps {
    */
   style?: StyleProp<ViewStyle>;
   /**
-   * Custom flag component instead of default
-   */
-  customFlag?: JSX.Element;
-  /**
    * Visibility of flag component
    */
   isFlagVisible?: boolean;
@@ -78,7 +74,6 @@ export interface IPickerTogglerProps {
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   onLayout: (measure: IItemMeasure) => void;
-  customFlag?: JSX.Element;
   isFlagVisible?: boolean;
 }
 

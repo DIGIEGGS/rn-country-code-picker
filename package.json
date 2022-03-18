@@ -1,6 +1,6 @@
 {
   "name": "@digieggs/rn-country-code-picker",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",

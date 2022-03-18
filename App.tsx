@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-    KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TextInput, View
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
 import CallingCodePicker from './src/components/CallingCodePicker';
-import { spacing } from './src/theme';
 
 const App = () => {
   const [selectedCode, setSelectedCode] = useState<string | undefined>('');
@@ -16,7 +21,11 @@ const App = () => {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
       >
         <View style={styles.inputContainer}>
-          <CallingCodePicker onValueChange={text => setSelectedCode(text)} style={styles.picker} />
+          <CallingCodePicker
+            isFlagVisible={false}
+            onValueChange={text => setSelectedCode(text)}
+            style={styles.picker}
+          />
           <TextInput style={styles.input} keyboardType="number-pad" />
         </View>
       </KeyboardAvoidingView>

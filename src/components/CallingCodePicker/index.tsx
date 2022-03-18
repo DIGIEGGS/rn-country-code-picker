@@ -1,7 +1,13 @@
 import React, { createRef, useEffect, useState } from 'react';
 import {
-    Dimensions, FlatList, KeyboardAvoidingView, ListRenderItemInfo, Modal, Platform,
-    TouchableOpacity, View
+  Dimensions,
+  FlatList,
+  KeyboardAvoidingView,
+  ListRenderItemInfo,
+  Modal,
+  Platform,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
 import countries from '../../data/countries';
@@ -25,6 +31,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   searchInputStyle,
   pickerItemContainerStyle,
   style,
+  customFlag,
+  isFlagVisible = true,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
@@ -40,8 +48,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   const [containerMeasure, setContainerMeasure] = useState<IItemMeasure>();
   const styles = useStyles(calculateModalVerticalPosition());
 
-  const handleCountrySelect = (selectedCountry: ICountry) => {
-    setSelectedCountry(selectedCountry);
+  const handleCountrySelect = (country: ICountry) => {
+    setSelectedCountry(country);
     setIsPickerOpen(false);
     setSearchValue('');
   };
@@ -80,7 +88,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
 
   useEffect(() => {
     onValueChange(selectedCountry?.callingCode);
-  }, [selectedCountry]);
+  }, [selectedCountry, onValueChange]);
 
   function dismissPicker() {
     setIsPickerOpen(false);
@@ -101,6 +109,8 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
         onLayout={measure => setToggleMeasure(measure)}
+        customFlag={customFlag}
+        isFlagVisible={isFlagVisible}
       />
       <Modal visible={isPickerOpen} transparent animationType="fade">
         <View style={styles.modalChild}>

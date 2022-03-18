@@ -31,7 +31,6 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
   searchInputStyle,
   pickerItemContainerStyle,
   style,
-  customFlag,
   isFlagVisible = true,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -109,7 +108,6 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
         containerStyle={togglerContainerStyle}
         textStyle={togglerLabelStyle}
         onLayout={measure => setToggleMeasure(measure)}
-        customFlag={customFlag}
         isFlagVisible={isFlagVisible}
       />
       <Modal visible={isPickerOpen} transparent animationType="fade">

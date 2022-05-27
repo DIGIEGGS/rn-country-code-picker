@@ -5,7 +5,6 @@ exports[`renders correctly 1`] = `
   accessible={true}
   collapsable={false}
   focusable={true}
-  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -72,12 +71,12 @@ exports[`renders correctly 1`] = `
       <Text
         style={
           Array [
+            undefined,
             Object {
               "color": "#111111",
               "fontSize": 16,
               "lineHeight": 24,
             },
-            undefined,
           ]
         }
       >
@@ -89,12 +88,12 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
+            "alignSelf": "center",
+          },
+          Object {
             "color": "#111111",
             "fontSize": 16,
             "lineHeight": 24,
-          },
-          Object {
-            "alignSelf": "center",
           },
         ]
       }

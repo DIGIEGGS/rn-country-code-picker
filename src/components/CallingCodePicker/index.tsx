@@ -6,7 +6,6 @@ import {
   ListRenderItemInfo,
   Modal,
   Platform,
-  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';

@@ -17,8 +17,8 @@ const shadowStyle = StyleSheet.create({
         },
 });
 
-const styles = (y: number) =>
-  useMemo(
+const useStyles = (y: number) => {
+  const style = useMemo(
     () =>
       StyleSheet.create({
         keyboardAvoidingView: {
@@ -43,4 +43,7 @@ const styles = (y: number) =>
     [y],
   );
 
-export default styles;
+  return style;
+};
+
+export default useStyles;

@@ -86,6 +86,7 @@ export interface ISearchProps {
 
 export interface IStyledTextProps {
   style?: StyleProp<TextStyle>;
+  children?: JSX.Element | string;
 }
 
 export interface IItemMeasure {

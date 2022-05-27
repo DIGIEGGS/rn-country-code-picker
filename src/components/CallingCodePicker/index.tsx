@@ -6,6 +6,7 @@ import {
   ListRenderItemInfo,
   Modal,
   Platform,
+  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -132,7 +133,7 @@ const CallingCodePicker: React.FC<ICallingCodePickerProps> = ({
                 showsVerticalScrollIndicator={false}
                 style={listStyle}
                 ItemSeparatorComponent={ItemSeparator}
-                keyboardShouldPersistTaps="handled"
+                keyboardShouldPersistTaps="always"
               />
             </View>
           </KeyboardAvoidingView>

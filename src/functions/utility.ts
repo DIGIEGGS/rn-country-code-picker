@@ -16,16 +16,20 @@ export async function onLayoutToggle(
 
 export function sortData(countries: Array<ICountry>, searchValue: string) {
   return countries.sort((a, b) =>
-    searchValue && a.name.toLowerCase() < b.name.toLowerCase()
+    searchValue
+      ? a.name.toLowerCase() < b.name.toLowerCase()
+        ? -1
+        : a.name.toLowerCase().startsWith(searchValue.toLowerCase())
+        ? -1
+        : a.name.toLowerCase() === searchValue.toLowerCase()
+        ? -1
+        : a.alpha2Code.toLowerCase() === searchValue.toLowerCase()
+        ? -1
+        : a.callingCode === searchValue
+        ? -1
+        : 1
+      : a.name.toLowerCase() < b.name.toLowerCase()
       ? -1
-      : a.name.toLowerCase().startsWith(searchValue.toLowerCase())
-      ? -1
-      : a.name.toLowerCase() === searchValue.toLowerCase()
-      ? -1
-      : a.alpha2Code.toLowerCase() === searchValue.toLowerCase()
-      ? -1
-      : a.callingCode === searchValue
-      ? -1
-      : 1,
+      : 0,
   );
 }

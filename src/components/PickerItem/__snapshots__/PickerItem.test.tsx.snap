@@ -73,7 +73,6 @@ exports[`renders correctly 1`] = `
           Array [
             undefined,
             Object {
-              "color": "#111111",
               "fontSize": 16,
               "lineHeight": 24,
             },
@@ -91,7 +90,6 @@ exports[`renders correctly 1`] = `
             "alignSelf": "center",
           },
           Object {
-            "color": "#111111",
             "fontSize": 16,
             "lineHeight": 24,
           },
